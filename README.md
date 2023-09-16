@@ -32,10 +32,11 @@ Our project will be constructed using the MERN stack, which stands for MongoDB, 
 | Name                   | Student ID | GitHub Username | Role/Strength   |
 | ------------------------ | ------------ | ----------------- | ----------------- |
 |Johnny Aldeb | 40187248  |Johnny-Aldeb | Full Stack
-|Joud Babik |40031039 | | 
-|Daniel Duuguay|  |  | |
-|Maria Balanjian|40227451| |
-|Omar Ziad| 40214980| |
+|Joud Babik |40031039 | JRB958| Full Stack
+|Daniel Duguay| 40202775| DanDuguay | Full Stack|
+|Maria Balanjian|40227451|Mariapalan | Full Stack
+|Omar Ziad| 40214980| Ziad|Full Stack
+|Leon Robert-Hosein|40092184|Kytobro421|Full Stack
 
 
 
