@@ -35,7 +35,7 @@ Our project will be constructed using the MERN stack, which stands for MongoDB, 
 |Joud Babik |40031039 | JRB958| Full Stack
 |Daniel Duguay| 40202775| DanDuguay | Full Stack|
 |Maria Balanjian|40227451|Mariapalan | Full Stack
-|Omar Ziad| 40214980| Ziad|Full Stack
+|Omar Ziad| 40214980| OZiad|Full Stack
 |Leon Robert-Hosein|40092184|Kytobro421|Full Stack
 
 
