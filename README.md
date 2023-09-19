@@ -47,5 +47,4 @@ Our project will be constructed using the MERN stack, which stands for MongoDB, 
 - React
 -	MongoDB
 -	Express
--	ReactJS
 -	NodeJS
