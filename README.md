@@ -48,3 +48,7 @@ Our project will be constructed using the MERN stack, which stands for MongoDB, 
 -	MongoDB
 -	Express
 -	NodeJS
+
+### Team rules and management:
+
+Please refer to the Wiki home page for more information on git rules for managing the repository, as well as general info on team workflow.
