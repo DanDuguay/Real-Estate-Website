@@ -1,0 +1,25 @@
+/* User stats */
+.user-profile ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start; /* Add this line to align items to the left */
+}
+
+.user-profile li {
+  margin-right: 20px;
+}
+
+.user-profile li:last-child {
+  margin-right: 0;
+}
+
+.user-profile li span {
+  font-weight: bold;
+  margin-right: 5px;
+  color: black; /* Add this line to make the words black */
+}
+.user-profile-body {
+  color: black;
+}
