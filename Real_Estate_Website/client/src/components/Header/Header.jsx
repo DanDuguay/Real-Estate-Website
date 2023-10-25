@@ -1,30 +1,41 @@
-import React from 'react'
-import './Header.css'
+import React from "react";
+import { Link } from "react-router-dom";
 
+import "./Header.css";
 
- const Header = () => {
-    return (
-        <section className='h-wrapper'>
-            <div className='flexCenter paddings innerWidth h-container'>
-                <img src='./logo.png' alt='logo' width={120} ></img>
-                <div className="flexCenter h-menu">
-                    <a href="">Buy</a>
-                    <a href="">Rent</a>
-                    <a href="">Broker</a>
-                    <a href="">About us</a>
-                    <div class="dropdown">
-                        <button className="dropbtn button">Login</button>
-                        <div className="dropdown-content">
-                            <a href="#">As User</a>
-                            <a href="#">As Broker</a>
-                            <a href="#">As Administrator</a>
-                        </div>
-                    </div>
-
+const Header = () => {
+  return (
+    <section className="h-wrapper">
+      <div className="flexCenter paddings innerWidth h-container">
+        <img src="./logo.png" alt="logo" width={120}></img>
+        <nav className="flexCenter h-menu">
+          <ul>
+            <li>
+              <Link to="/">Buy</Link>
+            </li>
+            <li>
+              <Link to="/">Rent</Link>
+            </li>
+            <li>
+              <Link to="/">Broker</Link>
+            </li>
+            <li>
+              <Link to="/">About Us</Link>
+            </li>
+            <li>
+              <div className="dropdown">
+                <button className="dropbtn button">Login</button>
+                <div className="dropdown-content">
+                  <Link to="/loginuser">As User</Link>
+                  <Link to="/loginbroker">As Broker</Link>
+                  <Link to="/loginadmin">As Administrator</Link>
                 </div>
-            </div>
-        </section>
-    )
-}
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  );
+};
 export default Header;
-
