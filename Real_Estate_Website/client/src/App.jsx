@@ -12,6 +12,7 @@ import UserRegister from "./components/UserLogin/UserRegister.jsx";
 // import CreateProperty from "./components/PropertyCreate/CreateProperty";
 import Property from "./components/pages/Property";
 import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
+import RequestVisitForm from "./components/RequestVisit/RequestVisit.jsx";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/loginuser" element={<UserLogin />} />
           <Route path="/registeruser" element={<UserRegister />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/requestvisit" element={<RequestVisitForm />} />
 
           {/* new */}
           {/* <Route path="/create" element={<CreateProperty />} />
