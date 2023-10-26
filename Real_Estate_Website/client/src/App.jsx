@@ -31,7 +31,7 @@ function App() {
           </Route>
 
           <Route path="/" element={<Hero />} />
-          <Route path="/loginuser" element={<UserProfile />} />
+          <Route path="/loginuser" element={<UserLogin />} />
           <Route path="/registeruser" element={<UserRegister />} />
           <Route path="/userprofile" element={<UserProfile />} />
 
