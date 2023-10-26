@@ -15,8 +15,11 @@ const PropertyCard = ({card}) => {
       <span className="secondaryText r-price">
         <span style={{ color: "black" }}>Price: </span>
         <span>{card.price}$</span>
+        <span  style={{ color: "black" }}> /Country: </span> <span>{card.country}</span>
+      <span style={{ color: "black" }}> /City:</span> <span>{card.city}</span>
       </span>
-      <span className="customTextClass">Title: {card.title}</span>
+      <span className="customTextClass" style={{ color: "black" }}>Title: {card.title}</span>
+     
       
     </div>
   )
