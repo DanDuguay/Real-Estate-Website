@@ -15,12 +15,13 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
+      <QueryClientProvider client={queryClient}>
         <Routes>
          
           <Route element={<Layout />} />
           <Route path="/property" element={<Houses />} />
           <Route path="/" element={<Hero />} />
-          <Route path="/loginuser" element={<UserProfile />} />
+          <Route path="/loginuser" element={<UserLogin />} />
           <Route path="/registeruser" element={<UserRegister />} />
           <Route path="/userprofile" element={<UserProfile />} />
         </Routes>
