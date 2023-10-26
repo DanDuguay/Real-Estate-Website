@@ -9,21 +9,38 @@ import {ReactQueryDevtools} from 'react-query/devtools'
 import "react-toastify/dist/ReactToastify.css"
 import UserLogin from "./components/UserLogin/UserLogin.jsx";
 import UserRegister from "./components/UserLogin/UserRegister.jsx";
+// import CreateProperty from "./components/PropertyCreate/CreateProperty";
+import Property from "./components/pages/Property";
+import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
 
 
 function App() {
   const queryClient = new QueryClient();
 
   return (
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
         <Routes>
          
           <Route element={<Layout />} />
-          <Route path="/property" element={<Houses />} />
+         
+          <Route path="/property">
+              <Route index element={<Houses />}/>
+              <Route path=":propertyId" element={<Property />}/>
+              
+              
+          </Route>
+
           <Route path="/" element={<Hero />} />
           <Route path="/loginuser" element={<UserLogin />} />
           <Route path="/registeruser" element={<UserRegister />} />
           <Route path="/userprofile" element={<UserProfile />} />
+
+          {/* new */}
+          {/* <Route path="/create" element={<CreateProperty />} />
+           */}
+           <Route path="/property/update/:id" element={<UpdatePropertyForm />} />
+           
+          {/* new */}
         </Routes>
         
         <ToastContainer/>
