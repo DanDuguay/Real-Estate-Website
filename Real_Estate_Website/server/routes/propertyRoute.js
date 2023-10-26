@@ -5,10 +5,10 @@ const router = express.Router()
 router.post("/create", createProperty)
 router.get("/displayProprties", getAllProperties)
 router.get("/:id", getProperty)
-router.delete("/delete/:id", deleteProperty)
+router.delete("/:id", deleteProperty)
 router.put("/update/:id", updateProperty)
 
-
+// /delete/
 
 
 export {router as propertyRoute}
