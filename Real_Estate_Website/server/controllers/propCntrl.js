@@ -82,9 +82,10 @@ export const deleteProperty = asynHandler(async (req, res)=>{
  export const updateProperty = asynHandler( async (req, res) => {
     const { id } = req.params;
     
-    const {title, description,price, address, city, country, image, facilities} = req.body.data
+    const {title, description,price, address, city, country, image} = req.body.data
   
     try {
+        console.log("hh")
       const upProperty = await prisma.properties.findUnique({ where: { id: id } });
   
       if (!upProperty) {
@@ -92,7 +93,7 @@ export const deleteProperty = asynHandler(async (req, res)=>{
       } else {
         const updatedProperty = await prisma.properties.update({
           where: { id },
-          data: {title, description,price, address, city, country, image, facilities },
+          data: {title, description,price, address, city, country, image },
         });
         res.status(200).json({ message: "Property updated successfully", property: updatedProperty });
       }
