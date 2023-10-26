@@ -7,33 +7,27 @@ import  {QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer } from "react-toastify";
 import {ReactQueryDevtools} from 'react-query/devtools'
 import "react-toastify/dist/ReactToastify.css"
-
-
+import UserLogin from "./components/UserLogin/UserLogin.jsx";
+import UserRegister from "./components/UserLogin/UserRegister.jsx";
 
 
 function App() {
   const queryClient = new QueryClient();
 
   return (
-    
-<QueryClientProvider client={queryClient}>
-
-
         <Routes>
          
           <Route element={<Layout />} />
           <Route path="/property" element={<Houses />} />
           <Route path="/" element={<Hero />} />
           <Route path="/loginuser" element={<UserProfile />} />
+          <Route path="/registeruser" element={<UserRegister />} />
+          <Route path="/userprofile" element={<UserProfile />} />
         </Routes>
         
         <ToastContainer/>
         <ReactQueryDevtools initialIsOpen={false}/>
         </QueryClientProvider>
-
-
-      
-    
   );
 }
 
