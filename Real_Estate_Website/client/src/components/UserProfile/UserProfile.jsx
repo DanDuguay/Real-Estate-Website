@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./UserProfile.css"; // Import the CSS file directly
-import profileImage from "./pic.png";
+import profileImage from "./pic.png"
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
 

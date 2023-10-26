@@ -20,7 +20,10 @@ const Header = () => {
             </li>
            
             <li>
-              <Link to="/">Broker</Link>
+              <Link to="/">Brokers</Link>
+            </li>
+            <li>
+              <Link to="/requestvisit">Request Visit</Link>
             </li>
             <li>
               <Link to="/">About Us</Link>
@@ -30,7 +33,7 @@ const Header = () => {
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
                   <Link to="/loginuser">As User</Link>
-                  <Link to="/RequestVisit">As Broker</Link>
+                  <Link to="/loginbroker">As Broker</Link>
                   <Link to="/loginadmin">As Administrator</Link>
                 </div>
               </div>
