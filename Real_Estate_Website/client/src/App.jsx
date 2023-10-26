@@ -14,6 +14,7 @@ import Property from "./components/pages/Property";
 import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
 import RequestVisitForm from "./components/RequestVisit/RequestVisit.jsx";
 import BrokerPage from "./components/Brokers/BrokerPage.jsx";
+import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
 
 
 function App() {
@@ -38,8 +39,9 @@ function App() {
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/requestvisit" element={<RequestVisitForm />} />
           <Route path="/brokerpage" element ={<BrokerPage />} />
+            <Route path="/brokercreate" element={<BrokerCreate />} />
             {/* Not implemented yet
-          <Route path="/brokercreate" element={<BrokerCreate />} />
+
           <Route path="/brokerread" element={<BrokerRead />} />
           <Route path="/brokerupdate" element={<BrokerUpdate />} />
           <Route path="/brokerdelete" element={<BrokerDelete />} />
