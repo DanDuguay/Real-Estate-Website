@@ -1,25 +1,61 @@
-/* User stats */
-.user-profile ul {
-  display: flex;
-  list-style: none;
+.navb {
+  background-color: #94bde8; /* Change the background color */
+  gap: 2rem;
+  align-content: center;
+  font-size: medium;
+}
+
+/* Style for the menu links */
+
+ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  justify-content: flex-start; /* Add this line to align items to the left */
 }
 
-.user-profile li {
-  margin-right: 20px;
+li {
+  display: inline;
+  padding: 1rem;
 }
 
-.user-profile li:last-child {
-  margin-right: 0;
+.menu a {
+  text-decoration: none;
+  color: white; /* Change the link color */
+  font-weight: bold; /* Add bold font */
 }
 
-.user-profile li span {
+/* Adjust styles for the active link */
+.menu a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style the profile page title */
+.card-title {
+  font-size: 30px;
   font-weight: bold;
-  margin-right: 5px;
-  color: black; /* Add this line to make the words black */
-}
-.user-profile-body {
+  margin-bottom: 10px;
   color: black;
+  text-align: center; /* Center the title text */
+}
+
+/* Style the card and content */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 60%;
+  min-height: 50vh;
+  margin: 20px auto 0;
+  text-align: left;
+  color: black;
+}
+
+/* Adjust the profile image */
+.profile-image {
+  max-width: 200px;
+  border-radius: 50%;
+  align-self: flex-end;
+  display: flex;
+  margin: 0 auto; /* Center the image horizontally */
 }
