@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./UserProfile.css"; // Import the CSS file directly
+import Layout from "../Layout/Layout";
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
@@ -16,9 +17,13 @@ const UserProfile = () => {
 
   return (
     <div
+    
       className="user-profile"
       style={{ backgroundImage: `url(${user.backgroundImage})` }}
     >
+      <div>
+        <Layout/>
+      </div>
       <div className="user-profile-header">
         <div className="profile-picture-container">
           <img

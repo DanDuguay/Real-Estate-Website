@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
 import UserLogin from "../UserLogin/UserLogin.jsx";
@@ -8,15 +8,16 @@ const Header = () => {
   return (
     <section className="h-wrapper">
       <div className="flexCenter paddings innerWidth h-container">
-        <img src="./logo.png" alt="logo" width={120}></img>
+        <Link to="/">
+          <img src="./logo.png" alt="logo" width={120}></img>
+        </Link>
+        
         <nav className="flexCenter h-menu">
           <ul>
             <li>
-              <Link to="/">Buy</Link>
+             <NavLink to="/property">Properties</NavLink>
             </li>
-            <li>
-              <Link to="/">Rent</Link>
-            </li>
+           
             <li>
               <Link to="/">Broker</Link>
             </li>
