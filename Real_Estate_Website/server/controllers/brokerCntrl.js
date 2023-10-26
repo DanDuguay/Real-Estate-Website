@@ -1,17 +1,28 @@
-import asynHandler from 'express-async-handler'
- import { prisma } from "../config/prismaConfig.js"
+import asyncHandler from 'express-async-handler'
+import { prisma } from "../config/prismaConfig.js"
 
- export const createBroker = asynHandler(async(req, res) =>{
+export const createBroker = asynHandler(async (req, res) => {
     console.log("creating a broker")
-    let {email} = req.body;
-    
+    let { email } = req.body;
+
     const brokerExists = await prisma.broker.findUnique({ where: { email: email } });
 
-    if(!brokerExists){
-        const broker = await prisma.broker.create({data: req.body})
+    if (!brokerExists) {
+        const broker = await prisma.broker.create({ data: req.body })
         res.send({
             message: "Broker Registered successfully",
             broker: broker,
         })
-    }else res.status(201).send({message: "Broker already exists"})
- });
+    } else res.status(201).send({ message: "Broker already exists" })
+});
+export const getBroker = asyncHandler(async (req, res) => {
+
+});
+
+export const deleteBroker = asyncHandler(async (req, res) => {
+
+});
+
+export const updateBroker = asyncHandler(async (req, res) => {
+
+});
