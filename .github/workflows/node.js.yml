@@ -25,5 +25,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn --cwd ./Real_Estate_Website/client/ install
+    - run: yarn --cwd ./Real_Estate_Website/client/ install --check-files
     - run: yarn --cwd ./Real_Estate_Website/client/ build
