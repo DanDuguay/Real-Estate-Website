@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
 import UserLogin from "../UserLogin/UserLogin.jsx";
+import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
 
 const Header = () => {
   return (
@@ -19,7 +20,10 @@ const Header = () => {
             </li>
            
             <li>
-              <Link to="/">Broker</Link>
+              <Link to="/">Brokers</Link>
+            </li>
+            <li>
+              <Link to="/requestvisit">Request Visit</Link>
             </li>
             <li>
               <Link to="/">About Us</Link>
