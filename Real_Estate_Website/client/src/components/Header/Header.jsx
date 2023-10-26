@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
 import UserLogin from "../UserLogin/UserLogin.jsx";
+import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
 
 const Header = () => {
   return (
@@ -29,7 +30,7 @@ const Header = () => {
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
                   <Link to="/loginuser">As User</Link>
-                  <Link to="/loginbroker">As Broker</Link>
+                  <Link to="/RequestVisit">As Broker</Link>
                   <Link to="/loginadmin">As Administrator</Link>
                 </div>
               </div>
