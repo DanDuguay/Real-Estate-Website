@@ -70,13 +70,15 @@ export const deleteProperty = async (id) => {
 
   export const updateProperty = async (id, data) => {
     try {
-        
-      const response = await api.put(`/property/update/${id}`, data, {
+      
+      const response = await api.put(`/property/update/${id}`, {data}   , {
         
         timeout: 10 * 1000,
       });
   
+      
       if (response.status === 400 || response.status === 500) {
+        
         
         throw response.data;
       }

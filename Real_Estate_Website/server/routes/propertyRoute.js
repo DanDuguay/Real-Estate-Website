@@ -8,7 +8,7 @@ router.get("/:id", getProperty)
 router.delete("/:id", deleteProperty)
 router.put("/update/:id", updateProperty)
 
-// /delete/
+
 
 
 export {router as propertyRoute}
