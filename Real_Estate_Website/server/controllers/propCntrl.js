@@ -85,9 +85,9 @@ export const deleteProperty = asynHandler(async (req, res)=>{
     const {title, description,price, address, city, country, image} = req.body.data
   
     try {
-        console.log("hh")
+        
       const upProperty = await prisma.properties.findUnique({ where: { id: id } });
-  
+    
       if (!upProperty) {
         res.status(404).json({ message: "Property not found" });
       } else {
