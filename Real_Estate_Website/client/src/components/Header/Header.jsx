@@ -4,6 +4,8 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import UserLogin from "../UserLogin/UserLogin.jsx";
 import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
+import Addproperty from "../AddProperty/Addproperty.jsx"
+
 
 const Header = () => {
   return (
@@ -18,6 +20,11 @@ const Header = () => {
             <li>
              <NavLink to="/property">Properties</NavLink>
             </li>
+
+            <li>
+             <NavLink to="/property/create">Add Property</NavLink>
+            </li>
+            
            
             <li>
               <Link to="/brokerpage">Brokers</Link>

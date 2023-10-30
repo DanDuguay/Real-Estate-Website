@@ -15,6 +15,7 @@ import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
 import RequestVisitForm from "./components/RequestVisit/RequestVisit.jsx";
 import BrokerPage from "./components/Brokers/BrokerPage.jsx";
 import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
+import Addproperty from "./components/AddProperty/Addproperty";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           {/* <Route path="/create" element={<CreateProperty />} />
            */}
            <Route path="/property/update/:id" element={<UpdatePropertyForm />} />
+           <Route path="/property/create" element={<Addproperty />} />
            
           {/* new */}
         </Routes>
