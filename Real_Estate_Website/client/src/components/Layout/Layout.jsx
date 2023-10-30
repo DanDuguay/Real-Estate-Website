@@ -7,6 +7,7 @@ const Layout = () => {
     <div style={{background:"var(--blue)"}}>
         <Header/>
         <Outlet/>
+        
     </div>
   )
 }

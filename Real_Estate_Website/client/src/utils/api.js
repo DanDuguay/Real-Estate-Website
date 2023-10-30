@@ -89,3 +89,23 @@ export const deleteProperty = async (id) => {
       throw error;
     }
   };
+
+ 
+  export const addProperty = async (data) => {
+    try {
+      console.log("11")
+      
+      const response = await api.post('/property/create', {data}, {
+        timeout: 10 * 1000,
+      });
+  
+      if (response.status === 400 || response.status === 500) {
+        throw response.data;
+      }
+      window.location.href = '/property';
+      return response.data;
+    } catch (error) {
+      toast.error("Something went wrong");
+      throw error;
+    }
+  };

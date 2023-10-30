@@ -55,7 +55,11 @@ const Property = () => {
           <button>Update Property</button>
         </Link>
  
-    </div>
+        </div>
+
+        
+
+      
     </div>
   )
 }
