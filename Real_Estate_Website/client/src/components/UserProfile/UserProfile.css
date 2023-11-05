@@ -1,12 +1,20 @@
-.navb {
-  background-color: #94bde8; /* Change the background color */
-  gap: 2rem;
-  align-content: center;
-  font-size: medium;
+/* Style the entire page background */
+body {
+  background-color: dodgerblue;
+  margin: 0;
 }
 
-/* Style for the menu links */
+/* Style the navbar */
+.navb {
+  background-color: #94bde8;
+  height: 80px; /* Increase the height to make it thicker */
+  display: flex;
+  justify-content: space-between; /* Pushes the content to the edges */
+  align-items: center;
+  padding: 0 20px; /* Add some padding for spacing on the sides */
+}
 
+/* Style the menu links */
 ul {
   list-style-type: none;
   margin: 0;
@@ -20,8 +28,8 @@ li {
 
 .menu a {
   text-decoration: none;
-  color: white; /* Change the link color */
-  font-weight: bold; /* Add bold font */
+  color: white;
+  font-weight: bold;
 }
 
 /* Adjust styles for the active link */
@@ -29,13 +37,13 @@ li {
   text-decoration: underline; /* Add underline on hover */
 }
 
-/* Style the profile page title */
+/* Style the profile page content */
 .card-title {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
   color: black;
-  text-align: center; /* Center the title text */
+  text-align: center;
 }
 
 /* Style the card and content */
