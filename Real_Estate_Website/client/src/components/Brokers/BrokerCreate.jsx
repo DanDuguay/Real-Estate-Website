@@ -1,31 +1,38 @@
-import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Added useHistory for redirection
 import Header from "../Header/Header.jsx";
 import "./Broker_CSS.css";
+import { createBroker } from "../../utils/api";
 
 const BrokerCreate = () => {
   const userRef = useRef();
   const errRef = useRef();
+  const history = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  //   useEffect(() => {
-  //     userRef.current.focus();
-  //   }, []);
-
-  useEffect(() => {
-    setErrMsg("");
-  }, [name, email]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email);
-    setName("");
-    setEmail("");
-    setSuccess(true);
+    try {
+      if (!name || !email) {
+        setErrMsg("Name and email are required");
+        return;
+      }
+
+      console.log(`name: ${name}. Email: ${email}`);
+      const response = await createBroker({ name, email });
+      if (response.success) {
+        setSuccess(true);
+      } else {
+        setErrMsg("Failed to create broker");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setErrMsg("Something went wrong");
+    }
   };
 
   return (
