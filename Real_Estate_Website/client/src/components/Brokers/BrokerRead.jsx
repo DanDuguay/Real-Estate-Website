@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { getAllBrokers } from "../../utils/api";
+import { Link } from "react-router-dom";
 import "./BrokerRead.css";
 
 const SeeBrokers = () => {
@@ -10,12 +11,6 @@ const SeeBrokers = () => {
     { refetchOnWindowFocus: false }
   );
 
-  //   return {
-  //     data,
-  //     isError,
-  //     isLoading,
-  //     refetch,
-  //   };
   return (
     <div className="broker-container">
       <h1>Brokers List</h1>
@@ -26,6 +21,7 @@ const SeeBrokers = () => {
           {data.map((broker) => (
             <li className="broker-item" key={broker.id}>
               {broker.name} - {broker.email}
+              <Link to={`/brokerupdate/${broker.id}`}>Update</Link>
             </li>
           ))}
         </ul>

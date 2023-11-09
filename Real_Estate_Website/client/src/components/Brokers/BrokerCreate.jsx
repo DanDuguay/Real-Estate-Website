@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Added useHistory for redirection
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import "./Broker_CSS.css";
-import { createBroker } from "../../utils/api";
+import { createBroker } from "../../utils/api"; // Update the import statement
 
 const BrokerCreate = () => {
   const userRef = useRef();
   const errRef = useRef();
-  const history = useNavigate();
+  const navigate = useNavigate(); // Use navigate instead of history
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ const BrokerCreate = () => {
 
       console.log(`name: ${name}. Email: ${email}`);
       const response = await createBroker({ name, email });
-      if (response.success) {
+      if (response && response.success) {
         setSuccess(true);
       } else {
         setErrMsg("Failed to create broker");

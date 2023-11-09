@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import "./UpdateBrokerForm.css";
-import { useLocation } from "react-router-dom";
-import { updateBroker } from "../../utils/api";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"; // Import useParams to extract route parameters
+import { getBroker, updateBroker } from "../../utils/api";
 
-function UpdateBrokerForm() {
-  const { pathname } = useLocation();
-  const id = pathname.split("/").slice(-1)[0];
-
+const BrokerUpdate = () => {
+  const { brokerId } = useParams(); // Use useParams to get the brokerId from the URL
   const [brokerData, setBrokerData] = useState({
     name: "",
     email: "",
@@ -14,29 +11,32 @@ function UpdateBrokerForm() {
     address: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setBrokerData({
-      ...brokerData,
-      [name]: value,
-    });
+  // Fetch the broker data using the brokerId
+  useEffect(() => {
+    // Fetch the broker data using getBroker function with brokerId
+    const fetchBrokerData = async () => {
+      try {
+        const data = await getBroker(brokerId);
+        setBrokerData(data);
+      } catch (error) {
+        // Handle error
+      }
+    };
+
+    fetchBrokerData();
+  }, [brokerId]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setBrokerData({ ...brokerData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
-      const data = {
-        name: brokerData.name,
-        email: brokerData.email,
-        phoneNumber: brokerData.phoneNumber,
-        address: brokerData.address,
-      };
-      console.log(data);
-
-      updateBroker(id, data); // Call the appropriate API function to update the broker
-
-      alert("Broker updated successfully");
+      const response = await updateBroker(brokerId, brokerData);
+      // Handle success, show a message, or navigate to another page
     } catch (error) {
-      console.error("Error updating broker:", error);
+      // Handle error
     }
   };
 
@@ -90,6 +90,6 @@ function UpdateBrokerForm() {
       </form>
     </div>
   );
-}
+};
 
-export default UpdateBrokerForm;
+export default BrokerUpdate;
