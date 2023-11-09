@@ -16,10 +16,11 @@ const BrokerUpdate = () => {
     // Fetch the broker data using getBroker function with brokerId
     const fetchBrokerData = async () => {
       try {
+        console.log(brokerId);
         const data = await getBroker(brokerId);
         setBrokerData(data);
       } catch (error) {
-        // Handle error
+        console.error("Error updating Broker:", error);
       }
     };
 
@@ -36,7 +37,7 @@ const BrokerUpdate = () => {
       const response = await updateBroker(brokerId, brokerData);
       // Handle success, show a message, or navigate to another page
     } catch (error) {
-      // Handle error
+      console.error("Error updating Broker:", error);
     }
   };
 
