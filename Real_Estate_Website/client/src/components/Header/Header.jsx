@@ -5,6 +5,7 @@ import "./Header.css";
 import UserLogin from "../UserLogin/UserLogin.jsx";
 import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
 import Addproperty from "../AddProperty/Addproperty.jsx"
+import BrokerSearch from "../BrokerSearch/BrokerSearch"
 
 
 const Header = () => {
