@@ -109,3 +109,20 @@ export const deleteProperty = async (id) => {
       throw error;
     }
   };
+
+export const createUser = async (data) => {
+    try {
+        const response = await api.post('/user/registeruser', {data}, {
+            timeout: 10 * 1000,
+        });
+
+        if (response.status === 400 || response.status === 500) {
+            throw response.data;
+        }
+        window.location.href = '/';
+        return response.data;
+    }   catch (error) {
+        toast.error("Something went wrong");
+        throw error;
+    }
+};

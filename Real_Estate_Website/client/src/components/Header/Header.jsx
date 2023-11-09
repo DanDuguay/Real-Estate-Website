@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
-import UserLogin from "../UserLogin/UserLogin.jsx";
+import UserLogin from "../Login/UserLogin.jsx";
 import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
 import Addproperty from "../AddProperty/Addproperty.jsx"
 
@@ -39,9 +39,9 @@ const Header = () => {
               <div className="dropdown">
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
-                  <Link to="/loginuser">As User</Link>
-                  <Link to="/loginbroker">As Broker</Link>
-                  <Link to="/loginadmin">As Administrator</Link>
+                  <Link to="user/loginuser">As User</Link>
+                  <Link to="user/loginbroker">As Broker</Link>
+                  <Link to="user/loginadmin">As Administrator</Link>
                 </div>
               </div>
             </li>
