@@ -16,6 +16,7 @@ import RequestVisitForm from "./components/RequestVisit/RequestVisit.jsx";
 import BrokerPage from "./components/Brokers/BrokerPage.jsx";
 import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
 import BrokerUpdate from "./components/Brokers/BrokerUpdate.jsx";
+import BrokerDelete from "./components/Brokers/BrokerDelete.jsx";
 import SeeBrokers from "./components/Brokers/BrokerRead.jsx";
 import Addproperty from "./components/AddProperty/Addproperty";
 
@@ -42,9 +43,9 @@ function App() {
         <Route path="/brokercreate" element={<BrokerCreate />} />
         <Route path="/brokerread" element={<SeeBrokers />} />
         <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
+        <Route path="/brokerdelete/:brokerId" element={<BrokerDelete />} />
         {/* Not implemented yet
 
-          <Route path="/brokerdelete" element={<BrokerDelete />} />
           */}
         {/* new */}
         {/* <Route path="/create" element={<CreateProperty />} />
