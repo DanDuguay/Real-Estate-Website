@@ -41,7 +41,7 @@ function App() {
         <Route path="/brokerpage" element={<BrokerPage />} />
         <Route path="/brokercreate" element={<BrokerCreate />} />
         <Route path="/brokerread" element={<SeeBrokers />} />
-        <Route path="/brokerupdate" element={<BrokerUpdate />} />
+        <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
         {/* Not implemented yet
 
           <Route path="/brokerdelete" element={<BrokerDelete />} />
