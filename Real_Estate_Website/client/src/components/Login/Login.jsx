@@ -5,7 +5,6 @@ import UserRegister from "./UserRegister.jsx";
 import "./UserLogin_CSS.css"
 import { UserExists } from "../../../../server/controllers/userCntrl";
 import {prisma} from "../../../../server/config/prismaConfig.js";
-import asynHandler from "express-async-handler"
 
 const Login = () => {
     const userRef = useRef();
