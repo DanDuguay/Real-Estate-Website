@@ -6,7 +6,7 @@ export const createBroker = asyncHandler(async (req, res) => {
   const { name, email } = req.body.data;
 
   const brokerExists = await prisma.broker.findUnique({
-    where: { email: email },
+    where: { address_brokerEmail: email },
   });
 
   if (!brokerExists) {
@@ -22,10 +22,11 @@ export const createBroker = asyncHandler(async (req, res) => {
     });
   } else res.status(201).send({ message: "Broker already exists" });
 });
+
 export const getBroker = asyncHandler(async (req, res) => {
   const { id } = req.params["id"];
   try {
-    const broker = await prisma.properties.findUnique({
+    const broker = await prisma.broker.findUnique({
       where: { id: id },
     });
     res.send(broker);
@@ -37,12 +38,12 @@ export const getBroker = asyncHandler(async (req, res) => {
 export const deleteBroker = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
-  const brokerExists = await prisma.properties.findUnique({
+  const brokerExists = await prisma.broker.findUnique({
     where: { id: id },
   });
 
   if (brokerExists) {
-    await prisma.properties.delete({ where: { id: id } });
+    await prisma.broker.delete({ where: { id: id } });
     res.status(200).json({ message: "Broker deleted successfully" });
   } else res.status(404).json({ message: "Broker does not exist" });
 });
@@ -53,14 +54,14 @@ export const updateBroker = asyncHandler(async (req, res) => {
   const { name, email } = req.body.data;
 
   try {
-    const updateBroker = await prisma.properties.findUnique({
+    const updateBroker = await prisma.broker.findUnique({
       where: { id: id },
     });
 
     if (!updateBroker) {
       res.status(404).json({ message: "Broker not found" });
     } else {
-      const updatedBroker = await prisma.properties.update({
+      const updatedBroker = await prisma.broker.update({
         where: { id },
         data: { name, email },
       });
@@ -75,4 +76,14 @@ export const updateBroker = asyncHandler(async (req, res) => {
       .status(500)
       .json({ message: "An error occurred while updating Broker info" });
   }
+});
+
+// function to get all the brokers from the database
+export const getAllBrokers = asyncHandler(async (req, res) => {
+  const brokers = await prisma.broker.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+  res.send(brokers);
 });

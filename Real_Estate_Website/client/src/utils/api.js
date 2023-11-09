@@ -99,6 +99,22 @@ export const addProperty = async (data) => {
   }
 };
 
+export const getAllBrokers = async () => {
+  try {
+    const response = await api.get("/broker/displayBrokers", {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong");
+    throw error;
+  }
+};
+
 // Broker CRUD Operation API calls
 
 export const getBroker = async (id) => {
@@ -175,20 +191,3 @@ export const createBroker = async (data) => {
     throw error;
   }
 };
-
-// To be implemented (route not set up)
-// export const getAllBrokers = async () => {
-//   try {
-//     const response = await api.get("/broker/getAllBrokers", {
-//       timeout: 10 * 1000,
-//     });
-
-//     if (response.status === 400 || response.status === 500) {
-//       throw response.data;
-//     }
-//     return response.data;
-//   } catch (error) {
-//     toast.error("Something went wrong");
-//     throw error;
-//   }
-// };
