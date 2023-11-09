@@ -1,0 +1,20 @@
+/* SeeBrokers.css */
+.broker-container {
+  background-color: #0058b6;
+  padding: 20px;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+.broker-group {
+  list-style: none;
+  padding: 0;
+}
+
+.broker-item {
+  margin-bottom: 10px;
+  font-size: 18px;
+  display: block; /* Display each list item on a new line */
+}
+
