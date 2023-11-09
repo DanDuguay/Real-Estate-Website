@@ -21,27 +21,22 @@
   justify-content: space-between;
 }
 
-.broker-item a {
+.broker-buttons {
+  display: flex;
+  gap: 10px; /* Adjust as needed for spacing */
+}
+
+.broker-item a,
+.broker-item button {
   background-color: #4caf50;
   color: white;
   padding: 8px 12px;
   text-decoration: none;
   border-radius: 5px;
-}
-
-.broker-item a:hover {
-  background-color: #45a049;
-}
-
-.broker-item button {
-  background-color: #ff3333;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
+.broker-item a:hover,
 .broker-item button:hover {
-  background-color: #e60000;
+  background-color: #45a049;
 }

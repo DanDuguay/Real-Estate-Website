@@ -142,7 +142,7 @@ export const deleteBroker = async (id) => {
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
-    window.location.href = "/broker";
+    window.location.href = "/brokerread";
     return response.data;
   } catch (error) {
     toast.error("Something went wrong");
@@ -163,7 +163,7 @@ export const updateBroker = async (id, data) => {
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
-    window.location.href = "/broker";
+    window.location.href = "/brokerread";
     return response.data;
   } catch (error) {
     toast.error("Something went wrong");
