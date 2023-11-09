@@ -21,7 +21,15 @@ const SeeBrokers = () => {
           {data.map((broker) => (
             <li className="broker-item" key={broker.id}>
               {broker.name} - {broker.email}
-              <Link to={`/brokerupdate/${broker.id}`}>Update</Link>
+              <div className="broker-buttons">
+                <Link to={`/brokerupdate/${broker.id}`}>Update</Link>
+                <Link
+                  to={`/brokerDelete/${broker.id}`}
+                  style={{ backgroundColor: "rgb(248, 0, 0)" }}
+                >
+                  Delete
+                </Link>
+              </div>
             </li>
           ))}
         </ul>
