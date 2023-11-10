@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Start frontend
+        run: yarn run dev --cwd ./Real_Estate_Website/client
+      - name: Start backend
+        run: yarn run start --cwd ./Real_Estate_Website/server
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
