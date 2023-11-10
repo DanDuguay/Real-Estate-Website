@@ -25,7 +25,7 @@ const UserProfile = () => {
       const data = await response.json();
       setAppointments(data);
     };
-    fetchAppointments();
+    //fetchAppointments();
 
     // Fetch user's favorite properties from API and set it to the state
     const fetchFavorites = async () => {
@@ -33,7 +33,7 @@ const UserProfile = () => {
       const data = await response.json();
       setFavorites(data);
     };
-    fetchFavorites();
+    //fetchFavorites();
   }, []);
 
   return (

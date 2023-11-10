@@ -38,7 +38,7 @@ function App() {
         <Route path="/brokercreate" element={<BrokerCreate />} />
 
         {/* Add your new route here */}
-        <Route path="/propertyoffer" element={<PropertyOffer />} />
+        <Route path="/propertyOffer" element={<PropertyOffer />} />
 
         {/* Continue with your other routes */}
         {/* Not implemented yet

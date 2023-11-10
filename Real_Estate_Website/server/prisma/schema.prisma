@@ -42,3 +42,16 @@ model Properties{
 
     @@unique(fields: [address, brokerEmail])
 }
+
+model PropertyOffers{
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    brokerName String
+    licenseNumber Int
+    agency String
+    firstName String
+    email String
+    buyerAddress String
+    immovableAddress String
+    budget Int
+    message String
+}

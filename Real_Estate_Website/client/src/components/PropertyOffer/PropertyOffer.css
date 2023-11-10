@@ -1,18 +1,16 @@
-/* PropertyOffer.css */
-
 .property-offer-container {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   width: 60%;
-  margin: 20px auto;
+  margin: 0px auto;
 }
 
 .property-offer-container h1 {
   font-size: 24px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .property-offer-form {
@@ -21,7 +19,7 @@
 }
 
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 /* Set text color to black for the budget number */

@@ -1,25 +1,49 @@
 import React, { useState } from "react";
 import "./PropertyOffer.css";
+import { submitOffer } from "../../utils/api";
 
-function PropertyOffer() {
+const PropertyOffer = () => {
   const [offer, setOffer] = useState({
+    brokerName: "",
+    licenseNumber: "",
+    agency: "",
     firstName: "",
-    lastName: "",
     email: "",
-    phone: "",
-    property: "",
-    budget: 100000,
+    buyerAddress: "",
+    immovableAddress: "",
+    budget: 0,
     message: "",
   });
 
   const handleChange = (event) => {
-    setOffer({ ...offer, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setOffer({
+      ...offer,
+      [name]: name === "budget" ? parseInt(value, 10) : value,
+    });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(offer);
-    // You can add your own logic here to submit the offer to the server
+    try {
+      const data = {
+        brokerName: offer.brokerName,
+        licenseNumber: offer.licenseNumber,
+        agency: offer.agency,
+        firstName: offer.firstName,
+        email: offer.email,
+        buyerAddress: offer.buyerAddress,
+        immovableAddress: offer.immovableAddress,
+        budget: offer.budget,
+        message: offer.message,
+      };
+      console.log(data);
+      await submitOffer(data);
+
+      alert("Offer submitted successfully");
+    } catch (error) {
+      console.error("Error submitting offer:", error);
+    }
   };
 
   return (
@@ -27,7 +51,34 @@ function PropertyOffer() {
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit} className="property-offer-form">
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="brokerName">Broker Name:</label>
+          <input
+            type="text"
+            name="brokerName"
+            value={offer.brokerName}
+            onChange={(e) => setOffer({ ...offer, brokerName: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="licenseNumber">License Number:</label>
+          <input
+            type="text"
+            name="licenseNumber"
+            value={offer.licenseNumber}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="agency">Agency:</label>
+          <input
+            type="text"
+            name="agency"
+            value={offer.agency}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="firstName">Buyer's Name:</label>
           <input
             type="text"
             name="firstName"
@@ -35,17 +86,9 @@ function PropertyOffer() {
             onChange={handleChange}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            name="lastName"
-            value={offer.lastName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Buyer's Email:</label>
           <input
             type="email"
             name="email"
@@ -53,29 +96,26 @@ function PropertyOffer() {
             onChange={handleChange}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="phone">Phone:</label>
+          <label htmlFor="buyerAddress">Buyer's Address:</label>
           <input
-            type="tel"
-            name="phone"
-            value={offer.phone}
+            type="text"
+            name="buyerAddress"
+            value={offer.buyerAddress}
             onChange={handleChange}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="property">Property:</label>
-          <select
-            name="property"
-            value={offer.property}
+          <label htmlFor="immovableAddress">Address of the Immovable:</label>
+          <input
+            type="text"
+            name="immovableAddress"
+            value={offer.immovableAddress}
             onChange={handleChange}
-          >
-            <option value="">Select a property</option>
-            <option value="property1">Property 1</option>
-            <option value="property2">Property 2</option>
-            <option value="property3">Property 3</option>
-          </select>
-        </div>
-        <div className="form-group">
+          />
+
           <div className="form-group">
             <label htmlFor="budget">Budget:</label>
             <input
@@ -89,7 +129,6 @@ function PropertyOffer() {
             />
             <span className="budget-number">${offer.budget}</span>
           </div>
-          <span>${offer.budget}</span>
         </div>
         <div className="form-group">
           <label htmlFor="message">Message:</label>
@@ -103,6 +142,6 @@ function PropertyOffer() {
       </form>
     </div>
   );
-}
+};
 
 export default PropertyOffer;
