@@ -153,7 +153,7 @@ const Addproperty = () => {
           />
         </label>
         </label>
-        <button type="button" onClick={
+        <button type="button" name="submit" onClick={
             handleSubmit
         }>
           Submit

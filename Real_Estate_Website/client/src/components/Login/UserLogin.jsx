@@ -21,6 +21,7 @@ const UserLogin = () => {
         setErrMsg("");
     }, [user, pwd])
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(user, pwd);
@@ -69,7 +70,7 @@ const UserLogin = () => {
             <p>
                 Need an Account?<br />
                 <span className="line">
-                    <Link to="/registeruser">Sign Up</Link>
+                    <Link to="/user/registeruser">Sign Up</Link>
                 </span>
             </p>
         </section>
