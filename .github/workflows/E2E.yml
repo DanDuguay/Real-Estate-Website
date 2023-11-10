@@ -37,5 +37,11 @@ jobs:
         with:
           browser: chrome
           working-directory: ./Real_Estate_Website/client
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: screenshots
+          path: ./cypress/screenshots/**
             
         
