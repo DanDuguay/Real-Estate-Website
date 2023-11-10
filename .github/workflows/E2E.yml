@@ -10,10 +10,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+
+      - name: install yarn
+        run: yarn install
+        
       - name: Start frontend
         run: yarn --cwd ./Real_Estate_Website/client run dev
+        
       - name: Start backend
         run: yarn --cwd ./Real_Estate_Website/server run start
+        
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
