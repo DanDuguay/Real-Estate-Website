@@ -25,8 +25,11 @@ jobs:
         
       - name: Start frontend & backend in background
         run: |
-          yarn --cwd ./Real_Estate_Website/client run dev &
+          yarn --cwd ./Real_Estate_Website/client run dev
           yarn --cwd ./Real_Estate_Website/server run start
+
+      - name: wait for dependencies to install
+        run: sleep 10
         
       - name: Cypress run
         uses: cypress-io/github-action@v5
