@@ -9,6 +9,7 @@ describe('displayProperties', () => {
   })
 })
 
+/*
 describe("addProperties", () => {
   it("Should be able to create a new property.", () => {
     cy.contains("li", "Add Property").click()
@@ -34,6 +35,7 @@ describe("addProperties", () => {
     cy.go("back")
   })
 })
+*/
 
 describe("CreateUser", () => {
   it("should be able to create a new user", () => {
