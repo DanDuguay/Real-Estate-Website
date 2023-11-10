@@ -16,6 +16,12 @@ jobs:
 
       - name: install yarn
         run: yarn install
+
+      - name: install prisma@client
+        run: yarn add @prisma/client
+
+      - name: install express-async-handler
+        run: yarn add express-async-handler
         
       - name: Start frontend & backend in background
         run: |
