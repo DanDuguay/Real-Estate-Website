@@ -17,11 +17,10 @@ jobs:
       - name: install yarn
         run: yarn install
         
-      - name: Start frontend
-        run: yarn --cwd ./Real_Estate_Website/client run dev
-        
-      - name: Start backend
-        run: yarn --cwd ./Real_Estate_Website/server run start
+      - name: Start frontend & backend in background
+        run: |
+          yarn --cwd ./Real_Estate_Website/client run dev &
+          yarn --cwd ./Real_Estate_Website/server run start
         
       - name: Cypress run
         uses: cypress-io/github-action@v5
