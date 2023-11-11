@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PropertyOffer.css";
-import { submitOffer } from "../../utils/api";
+import { submitPropertyOffer } from "../../utils/api";
 
 const PropertyOffer = () => {
   const [offer, setOffer] = useState({
@@ -15,37 +15,35 @@ const PropertyOffer = () => {
     message: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setOffer({
-      ...offer,
-      [name]: name === "budget" ? parseInt(value, 10) : value,
-    });
+  const handleChange = (e) => {
+    setOffer({ ...offer, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const data = {
-        brokerName: offer.brokerName,
-        licenseNumber: offer.licenseNumber,
-        agency: offer.agency,
-        firstName: offer.firstName,
-        email: offer.email,
-        buyerAddress: offer.buyerAddress,
-        immovableAddress: offer.immovableAddress,
-        budget: offer.budget,
-        message: offer.message,
-      };
-      console.log(data);
-      await submitOffer(data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      alert("Offer submitted successfully");
+    try {
+      await submitPropertyOffer(offer);
+
+      // Handle the response as needed
+      console.log("Response:", response);
+
+      // Reset the form after successful submission
+      setOffer({
+        brokerName: "",
+        licenseNumber: "",
+        agency: "",
+        firstName: "",
+        email: "",
+        buyerAddress: "",
+        immovableAddress: "",
+        budget: 0,
+        message: "",
+      });
     } catch (error) {
-      console.error("Error submitting offer:", error);
+      console.error("Error submitting form:", error);
     }
   };
-
   return (
     <div className="property-offer-container">
       <h1>Contact Us</h1>
@@ -65,7 +63,9 @@ const PropertyOffer = () => {
             type="text"
             name="licenseNumber"
             value={offer.licenseNumber}
-            onChange={handleChange}
+            onChange={(e) =>
+              setOffer({ ...offer, licenseNumber: e.target.value })
+            }
           />
         </div>
         <div className="form-group">
@@ -74,7 +74,7 @@ const PropertyOffer = () => {
             type="text"
             name="agency"
             value={offer.agency}
-            onChange={handleChange}
+            onChange={(e) => setOffer({ ...offer, agency: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -83,7 +83,7 @@ const PropertyOffer = () => {
             type="text"
             name="firstName"
             value={offer.firstName}
-            onChange={handleChange}
+            onChange={(e) => setOffer({ ...offer, firstName: e.target.value })}
           />
         </div>
 
@@ -93,7 +93,7 @@ const PropertyOffer = () => {
             type="email"
             name="email"
             value={offer.email}
-            onChange={handleChange}
+            onChange={(e) => setOffer({ ...offer, email: e.target.value })}
           />
         </div>
 
@@ -103,7 +103,9 @@ const PropertyOffer = () => {
             type="text"
             name="buyerAddress"
             value={offer.buyerAddress}
-            onChange={handleChange}
+            onChange={(e) =>
+              setOffer({ ...offer, buyerAddress: e.target.value })
+            }
           />
         </div>
 
@@ -113,7 +115,9 @@ const PropertyOffer = () => {
             type="text"
             name="immovableAddress"
             value={offer.immovableAddress}
-            onChange={handleChange}
+            onChange={(e) =>
+              setOffer({ ...offer, immovableAddress: e.target.value })
+            }
           />
 
           <div className="form-group">
@@ -125,7 +129,7 @@ const PropertyOffer = () => {
               min="0"
               max="1000000"
               step="1000"
-              onChange={handleChange}
+              onChange={(e) => setOffer({ ...offer, budget: e.target.value })}
             />
             <span className="budget-number">${offer.budget}</span>
           </div>
@@ -135,7 +139,7 @@ const PropertyOffer = () => {
           <textarea
             name="message"
             value={offer.message}
-            onChange={handleChange}
+            onChange={(e) => setOffer({ ...offer, message: e.target.value })}
           />
         </div>
         <button type="submit">Submit Offer</button>

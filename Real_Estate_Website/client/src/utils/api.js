@@ -98,22 +98,20 @@ export const addProperty = async (data) => {
     throw error;
   }
 };
-
-export const submitOffer = async (data) => {
+export const submitPropertyOffer = async (offerData) => {
   try {
-    console.log("Submitting Offer");
-
-    const response = await api.post("/propertyOffer/submitOffer", data, {
+    const response = await api.post("/offer/submitOffer", offerData, {
       timeout: 10 * 1000,
     });
 
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
-    window.location.href = "/propertyOffer";
+    toast.success("Property offer submitted successfully");
+    // You can perform additional actions after a successful offer submission
     return response.data;
   } catch (error) {
-    toast.error("Something went wrong");
+    toast.error("Something went wrong while submitting the property offer");
     throw error;
   }
 };
