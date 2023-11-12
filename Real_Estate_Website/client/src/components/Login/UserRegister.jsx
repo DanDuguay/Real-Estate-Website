@@ -3,6 +3,7 @@ import { faCheck, faTimes, faInfoCircle} from "@fortawesome/free-solid-svg-icons
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 import './UserLogin_CSS.css'
+import { createUser } from '../../utils/api';
 
 const USER_REGEX = /^[a-zA-z][a-z-A-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,25}$/;
@@ -14,6 +15,8 @@ const Register = () => {
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus,setUserFocus] = useState(false);
+
+    const [email, setEmail] = useState('');
 
     const [pwd, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
@@ -58,6 +61,21 @@ const Register = () => {
             setErrMsg("Invalid Entry");
             return;
         }
+        try {
+            const data = {
+                name: user,
+                email: email,
+                password: pwd,
+                role: "User"
+            };
+            console.log(data);
+            createUser(data);
+
+            alert("User registered successfully");
+        } catch (error) {
+            console.error("Error registering user:", error)
+        }
+
         setSuccess(true);
     }
 
@@ -101,6 +119,18 @@ const Register = () => {
                    Must begin with a letter.<br />
                    Letters, numbers, underscores, hyphens allowed.
                </p>
+
+               <label className = "user-login-email" htmlFor="email">Email:</label>
+               <input className="user-login-input"
+                      type="email"
+                      id="email"
+                      ref={userRef}
+                      onChange={(e) => setEmail (e.target.value)}
+                      required
+                      aria-describedby="uidnote"
+                      onFocus={() => setUserFocus(true)}
+                      onBlur={() => setUserFocus(false)}
+               />
 
                <label className="user-login-label" htmlFor="password">Password:
                    <span className={validMatch && matchPwd ? "valid" : "hide"}>

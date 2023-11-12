@@ -1,7 +1,7 @@
 # dependencies
 node_modules/
 
-
 # misc
 .env
 .DS_Store
+settings.json
