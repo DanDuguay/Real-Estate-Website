@@ -205,7 +205,7 @@ export const submitPropertyOffer = async (offerData) => {
   } catch (error) {
     toast.error("Something went wrong while submitting the property offer");
     throw error;
-  }
+  }};
 
 export const createUser = async (data) => {
     try {

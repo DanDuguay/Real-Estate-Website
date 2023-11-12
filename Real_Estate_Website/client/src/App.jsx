@@ -18,7 +18,7 @@ import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
 import BrokerUpdate from "./components/Brokers/BrokerUpdate.jsx";
 import BrokerDelete from "./components/Brokers/BrokerDelete.jsx";
 import SeeBrokers from "./components/Brokers/BrokerRead.jsx";
-import Addproperty from "./components/AddProperty/Addproperty";
+import Addproperty from "./components/AddProperty/Addproperty.jsx";
 import PropertyOffer from "./components/PropertyOffer/PropertyOffer.jsx";
 import Login from "./components/Login/Login.jsx";
 
@@ -32,6 +32,7 @@ function App() {
         <Route path="/property">
           <Route index element={<Houses />} />
           <Route path=":propertyId" element={<Property />} />
+        </Route>
           <Route path="/" element={<Hero />} />
           <Route path="/user/loginuser" element={<UserLogin />} />
           <Route path="/user/loginbroker" element={<Login />} />
@@ -42,15 +43,12 @@ function App() {
           <Route path="/brokerpage" element ={<BrokerPage />} />
           <Route path="/brokercreate" element={<BrokerCreate />} />
           <Route path="/propertyOffer" element={<PropertyOffer />} />
-            {/* Not implemented yet
         <Route path="/brokerpage" element={<BrokerPage />} />
         <Route path="/brokercreate" element={<BrokerCreate />} />
         <Route path="/brokerread" element={<SeeBrokers />} />
         <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
         <Route path="/brokerdelete/:brokerId" element={<BrokerDelete />} />
-        {/* Not implemented yet
 
-          */}
         {/* new */}
         {/* <Route path="/create" element={<CreateProperty />} />
          */}
