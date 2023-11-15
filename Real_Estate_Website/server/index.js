@@ -5,6 +5,8 @@ import cors from "cors";
 import { userRoute } from "./routes/userRoute.js";
 import { propertyRoute } from "./routes/propertyRoute.js";
 import { BrokerRoute } from "./routes/brokerRoute.js";
+import { offerRoute } from "./routes/offerRoute.js";
+
 dotenv.config();
 
 const app = express();
@@ -22,3 +24,5 @@ app.listen(PORT, () => {
 app.use("/api/user", userRoute);
 app.use("/api/property", propertyRoute);
 app.use("/api/broker", BrokerRoute);
+app.use("/api/offer", offerRoute);
+
