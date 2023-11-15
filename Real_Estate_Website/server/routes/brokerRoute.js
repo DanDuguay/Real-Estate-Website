@@ -5,6 +5,7 @@ import {
   updateBroker,
   deleteBroker,
   getAllBrokers,
+  requestViste
 } from "../controllers/brokerCntrl.js";
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.get("/broker", getAllBrokers);
 router.get("/:id", getBroker);
 router.delete("/:id", deleteBroker);
 router.put("/update/:id", updateBroker);
+router.post("/requestviste/:id", requestViste)
 
 export { router as BrokerRoute };

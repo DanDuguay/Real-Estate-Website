@@ -115,7 +115,6 @@ export const getAllBrokers = async () => {
   }
 };
 
-// Broker CRUD Operation API calls
 
 export const getBroker = async (id) => {
   try {
@@ -208,3 +207,23 @@ export const createUser = async (data) => {
         throw error;
     }
 };
+
+
+export const RequestVisit = async(date, propertyId, email) =>{
+  try {
+    await api.post(
+      `/broker/requestviste/${propertyId}`,
+      {
+        email,
+        id: propertyId,
+        date: dayjs(date).format("DD/MM/YYYY"),
+      },
+      {
+        timeout: 10 * 1000,
+      }
+    );
+  } catch (error) {
+    toast.error("Something went wrong, Please try again");
+    throw error;
+  }
+}
