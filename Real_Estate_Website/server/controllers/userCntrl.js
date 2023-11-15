@@ -37,3 +37,9 @@ export const UserExists = asynHandler(async(req,res) =>{
         res.send({message: "User exists", user: exists})
     } else res.status(201).send({message: "User doesn't exist"})
 });
+
+
+
+
+
+

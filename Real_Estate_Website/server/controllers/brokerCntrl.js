@@ -76,3 +76,37 @@ export const getAllBrokers = asyncHandler(async (req, res) => {
   });
   res.send(brokers);
 });
+
+
+
+export const requestViste = asyncHandler(async (req, res) => {
+  const { email, date } = req.body;
+  const { id } = req.params;
+  console.log(id)
+
+  try {
+    const alreadyBooked = await prisma.broker.findUnique({
+      where: { email },
+      select: { bookedVisits: true },
+    });
+    console.log(id)
+    if (alreadyBooked.bookedVisits.some((visit) => visit.id === id)) {
+      res
+        .status(400)
+        .json({ message: "This residency is already booked by you" });
+    } else {
+      // console.log(id)
+      // console.log(email)
+      await prisma.broker.update({
+        
+        where: { email: email },
+        data: {
+          bookedVisits: { push: { id, date } },
+        },
+      });
+      res.send("your visit is booked successfully");
+    }
+  } catch (err) {
+    throw new Error(err.message);
+  }
+});
