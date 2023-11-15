@@ -5,13 +5,12 @@ import { toast } from "react-toastify";
 export const api = axios.create({
   baseURL: "http://localhost:4000/api",
 });
-
 export const getAllProperties = async () => {
   try {
     const response = await api.get("/property/displayProprties", {
       timeout: 10 * 1000,
     });
-
+    
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
@@ -159,7 +158,6 @@ export const updateBroker = async (id, data) => {
         timeout: 10 * 1000,
       }
     );
-
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
@@ -191,6 +189,23 @@ export const createBroker = async (data) => {
     throw error;
   }
 };
+
+export const submitPropertyOffer = async (offerData) => {
+  try {
+    const response = await api.post("/offer/submitOffer", offerData, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    toast.success("Property offer submitted successfully");
+    // You can perform additional actions after a successful offer submission
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong while submitting the property offer");
+    throw error;
+  }};
 
 export const createUser = async (data) => {
     try {

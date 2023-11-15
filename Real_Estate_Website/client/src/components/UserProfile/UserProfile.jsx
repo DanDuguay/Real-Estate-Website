@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./UserProfile.css"; // Import the CSS file directly
-import profileImage from "./pic.png"
+import profileImage from "./pic.png";
 import { Link } from "react-router-dom";
-import Layout from "../Layout/Layout";
-
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
@@ -27,7 +25,7 @@ const UserProfile = () => {
       const data = await response.json();
       setAppointments(data);
     };
-    fetchAppointments();
+    //fetchAppointments();
 
     // Fetch user's favorite properties from API and set it to the state
     const fetchFavorites = async () => {
@@ -35,46 +33,49 @@ const UserProfile = () => {
       const data = await response.json();
       setFavorites(data);
     };
-    fetchFavorites();
+    //fetchFavorites();
   }, []);
 
   return (
-    <section className="wrap">
-      <div className="container">
-        <div className="navb">
-          <nav className="menu">
-            <ul>
-              <li>
-                <Link to="/">Profile-page</Link>
-              </li>
-              <li>
-                <Link to="/">Contact info</Link>
-              </li>
-              <li>
-                <Link to="/">Appointments</Link>
-              </li>
-              <li>
-                <Link to="/">Favourite Properties</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            <div className="card-title">Profile</div>
-            <div className="card-text">Name: </div>
-            <div className="card-text">Email:</div>
-            <div className="card-text">Phone: </div>
-            <div className="card-text">Address: </div>
-            <img
-              src={profileImage}
-              alt="User Profile"
-              className="profile-image"
-            />
+    <div className="UserProfile">
+      <section className="wrap">
+        <div className="container">
+          <div className="navb">
+            <nav className="menu">
+              <ul>
+                <li>
+                  <Link to="/">Profile-page</Link>
+                </li>
+                <li>
+                  <Link to="/propertyoffer">Contact info</Link>
+                </li>
+                <li>
+                  <Link to="/">Appointments</Link>
+                </li>
+                <li>
+                  <Link to="/">Favourite Properties</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <div className="card-title">Profile</div>
+              <div className="card-text">Name: </div>
+              <div className="card-text">Email:</div>
+              <div className="card-text">Phone: </div>
+              <div className="card-text">Address: </div>
+              <img
+                src={profileImage}
+                alt="User Profile"
+                className="profile-image"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
+
 export default UserProfile;

@@ -18,7 +18,8 @@ import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
 import BrokerUpdate from "./components/Brokers/BrokerUpdate.jsx";
 import BrokerDelete from "./components/Brokers/BrokerDelete.jsx";
 import SeeBrokers from "./components/Brokers/BrokerRead.jsx";
-import Addproperty from "./components/AddProperty/Addproperty";
+import Addproperty from "./components/AddProperty/Addproperty.jsx";
+import PropertyOffer from "./components/PropertyOffer/PropertyOffer.jsx";
 import Login from "./components/Login/Login.jsx";
 
 function App() {
@@ -28,12 +29,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Routes>
         <Route element={<Layout />} />
-
         <Route path="/property">
           <Route index element={<Houses />} />
           <Route path=":propertyId" element={<Property />} />
         </Route>
-
           <Route path="/" element={<Hero />} />
           <Route path="/user/loginuser" element={<UserLogin />} />
           <Route path="/user/loginbroker" element={<Login />} />
@@ -42,16 +41,14 @@ function App() {
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/requestvisit" element={<RequestVisitForm />} />
           <Route path="/brokerpage" element ={<BrokerPage />} />
-            <Route path="/brokercreate" element={<BrokerCreate />} />
-            {/* Not implemented yet
+          <Route path="/brokercreate" element={<BrokerCreate />} />
+          <Route path="/propertyOffer" element={<PropertyOffer />} />
         <Route path="/brokerpage" element={<BrokerPage />} />
         <Route path="/brokercreate" element={<BrokerCreate />} />
         <Route path="/brokerread" element={<SeeBrokers />} />
         <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
         <Route path="/brokerdelete/:brokerId" element={<BrokerDelete />} />
-        {/* Not implemented yet
 
-          */}
         {/* new */}
         {/* <Route path="/create" element={<CreateProperty />} />
          */}
@@ -60,7 +57,6 @@ function App() {
 
         {/* new */}
       </Routes>
-
       <ToastContainer />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
