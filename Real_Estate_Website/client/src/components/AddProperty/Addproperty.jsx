@@ -1,12 +1,9 @@
-import React from 'react'
-import { useState } from 'react';
-import "./Addproperty.css"
-import { addProperty } from '../../utils/api';
+import React from "react";
+import { useState } from "react";
+import "./Addproperty.css";
+import { addProperty } from "../../utils/api";
 
 const Addproperty = () => {
-
-
-    
   const [propertyData, setPropertyData] = useState({
     title: "",
     description: "",
@@ -17,49 +14,41 @@ const Addproperty = () => {
     image: null,
     facilities: {
       bedrooms: 0,
-      
-    }, 
-    brokerEmail: "", 
+    },
+    brokerEmail: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPropertyData({
       ...propertyData,
-      [name]: name === 'facilities' ? JSON.parse(value) : value,
+      [name]: name === "facilities" ? JSON.parse(value) : value,
     });
   };
 
   const handleSubmit = () => {
     try {
-        
-        const data = {
-            title: propertyData.title,
-            description: propertyData.description,
-            price: parseInt(propertyData.price, 10),
-            address: propertyData.address,
-            city: propertyData.city,
-            country: propertyData.country,
-            image: propertyData.image,
-            facilities: { bedrooms: propertyData.facilities.bedrooms},
-            brokerEmail: propertyData.brokerEmail,
-            
-          };
-   
-    
-    addProperty(data);
+      const data = {
+        title: propertyData.title,
+        description: propertyData.description,
+        price: parseInt(propertyData.price, 10),
+        address: propertyData.address,
+        city: propertyData.city,
+        country: propertyData.country,
+        image: propertyData.image,
+        facilities: { bedrooms: propertyData.facilities.bedrooms },
+        brokerEmail: propertyData.brokerEmail,
+      };
 
-      
-      alert('Property uploaded successfully');
+      addProperty(data);
+
+      alert("Property uploaded successfully");
     } catch (error) {
-      
-      console.error('Error uploading property:', error);
+      console.error("Error uploading property:", error);
     }
   };
   return (
-
     <div>
-       
       <h1>Add Property</h1>
       <form>
         <label>
@@ -113,8 +102,6 @@ const Addproperty = () => {
         </label>
 
         <label>
-     
-
           Country:
           <input
             type="text"
@@ -139,29 +126,25 @@ const Addproperty = () => {
           <input
             type="number"
             name="facilities"
-            value={propertyData.facilities.bedrooms} 
+            value={propertyData.facilities.bedrooms}
             onChange={handleChange}
           />
-        <label>
-
-          Broker Email:
-          <input
-            type="email"
-            name="brokerEmail"
-            value={propertyData.brokerEmail}
-            onChange={handleChange}
-          />
+          <label>
+            Broker Email:
+            <input
+              type="email"
+              name="brokerEmail"
+              value={propertyData.brokerEmail}
+              onChange={handleChange}
+            />
+          </label>
         </label>
-        </label>
-        <button type="button" name="submit" onClick={
-            handleSubmit
-        }>
+        <button type="button" name="submit" onClick={handleSubmit}>
           Submit
         </button>
       </form>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Addproperty
+export default Addproperty;
