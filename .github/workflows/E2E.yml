@@ -36,6 +36,8 @@ jobs:
         uses: cypress-io/github-action@v6 
         with:
           browser: chrome
+          build: yarn build
+          start: yarn start
           headed: true
           working-directory: ./Real_Estate_Website/client
             
