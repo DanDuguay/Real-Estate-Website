@@ -29,7 +29,7 @@ jobs:
       - name: Start frontend & backend in background
         run: |
           yarn --cwd ./Real_Estate_Website/client run dev &
-          yarn --cwd ./Real_Estate_Website/server run start &
+          yarn --cwd ./Real_Estate_Website/server run nodemon &
           sleep 5
         
       - name: Cypress run
