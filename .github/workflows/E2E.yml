@@ -33,7 +33,7 @@ jobs:
 
       - name: Start backend in background
         run: |
-          cd .. &
+          cd ../.. &
           pwd &
           cd ./server &
           node index.js &
