@@ -33,15 +33,9 @@ jobs:
           sleep 5
         
       - name: Cypress run
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v5 --headed
         with:
           browser: chrome
           working-directory: ./Real_Estate_Website/client
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: screenshots
-          path: ./cypress/screenshots/**
             
         
