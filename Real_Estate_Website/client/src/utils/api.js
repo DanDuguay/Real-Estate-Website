@@ -238,7 +238,7 @@ export const RequestVisit = async(date, propertyId, email) =>{
       }
     );
   } catch (error) {
-    toast.error("Something went wrong, Please try again");
+   
     throw error;
   }
 }

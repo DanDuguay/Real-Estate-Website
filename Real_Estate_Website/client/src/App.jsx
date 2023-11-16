@@ -12,7 +12,7 @@ import UserRegister from "./components/Login/UserRegister.jsx";
 // import CreateProperty from "./components/PropertyCreate/CreateProperty";
 import Property from "./components/pages/Property";
 import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
-import RequestVisitForm from "./components/RequestVisit/RequestVisit.jsx";
+
 import BrokerPage from "./components/Brokers/BrokerPage.jsx";
 import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
 import BrokerUpdate from "./components/Brokers/BrokerUpdate.jsx";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/user/loginadmin" element={<Login />} />
           <Route path="/user/registeruser" element={<UserRegister />} />
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/requestvisit" element={<RequestVisitForm />} />
+         
           <Route path="/brokerpage" element ={<BrokerPage />} />
           <Route path="/brokercreate" element={<BrokerCreate />} />
           <Route path="/propertyOffer" element={<PropertyOffer />} />

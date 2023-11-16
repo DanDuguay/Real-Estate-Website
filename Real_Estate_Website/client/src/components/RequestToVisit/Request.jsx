@@ -35,7 +35,7 @@ const Request = ({ opened, setOpened, email, propertyId }) => {
           centered
         >
            <div className="flexColCenter" style={{gap: "1rem"}}>
-        <DatePickerInput  value={value} onChange={setValue} minDate={new Date()}/>
+        <DatePickerInput  value={value} onChange={setValue} dropdownType="modal" minDate={new Date()}/>
         <Button disabled={!value || isLoading} onClick={() => mutate()}>
           Book visit
         </Button>
