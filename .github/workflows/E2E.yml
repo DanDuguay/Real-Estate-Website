@@ -26,13 +26,18 @@ jobs:
       - run: yarn add express-async-handler
         working-directory: ./Real_Estate_Website/server
 
-      - name: wait for dependencies to install
-        run: sleep 2
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo PORT=4000 >> .env
+          echo DATABASE_URL="mongodb+srv://johnnyaldeb:IMINhc4opL5EqF8j@cluster0.1exzuvv.mongodb.net/RealEstate?retryWrites=true&w=majority"  >> .env
+          cat .env
+        working-directory: ./Real_Estate_Website/server
         
-      - run: yarn run dev & sleep 2
+      - run: yarn run dev &
         working-directory: ./Real_Estate_Website/client
 
-      - run: yarn run start
+      - run: yarn run start &
         working-directory: ./Real_Estate_Website/server
         
       - name: Cypress run
