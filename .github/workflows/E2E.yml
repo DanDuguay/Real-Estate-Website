@@ -33,8 +33,9 @@ jobs:
           sleep 5
         
       - name: Cypress run
-        uses: cypress-io/github-action@v5 --headed
+        uses: cypress-io/github-action@v6 
         with:
+          options: --headed
           browser: chrome
           working-directory: ./Real_Estate_Website/client
             
