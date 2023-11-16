@@ -4,6 +4,7 @@ beforeEach(() => {
 
 describe('displayProperties', () => {
   it('should be able to visit the homepage, and then click on the properties button', () => {
+    cy.visit('http://localhost:5173/')
     cy.contains("li", "Properties").click()
     cy.location("pathname").should('eq',"/property")
   })
