@@ -15,21 +15,21 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: install yarn
-        run: yarn install
-
+        run: pwd & yarn install
+            
       - name: install prisma@client
-        run: yarn --cwd ./Real_Estate_Website/server add @prisma/client
+        run: pwd & yarn --cwd ./Real_Estate_Website/server add @prisma/client
 
       - name: install express-async-handler
-        run: yarn --cwd ./Real_Estate_Website/server add express-async-handler
+        run: vwd & yarn --cwd ./Real_Estate_Website/server add express-async-handler
 
       - name: wait for dependencies to install
-        run: sleep 10
+        run: sleep 2
         
       - name: Start frontend in background
         run: |
           yarn --cwd ./Real_Estate_Website/client run dev &
-          sleep 5
+          sleep 2
 
       - name: Start backend in background
         run: |
@@ -37,7 +37,7 @@ jobs:
           pwd &
           cd ./server &
           node index.js &
-          sleep 5
+          sleep 2
         
       - name: Cypress run
         uses: cypress-io/github-action@v6 
