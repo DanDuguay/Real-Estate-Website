@@ -6,7 +6,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./Real_Estate_Website/client
+        working-directory: ./Real_Estate_Website
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -15,27 +15,27 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: install yarn
-        run: pwd & yarn install
+        run: cd client & pwd & yarn install
             
       - name: install prisma@client
-        run: pwd & yarn --cwd ./Real_Estate_Website/server add @prisma/client
+        run:  cd client & pwd & yarn add @prisma/client & cd ../server & yarn add @prisma/client
 
       - name: install express-async-handler
-        run: vwd & yarn --cwd ./Real_Estate_Website/server add express-async-handler
+        run: cd server & pwd & yarn add express-async-handler
 
       - name: wait for dependencies to install
         run: sleep 2
         
       - name: Start frontend in background
         run: |
-          yarn --cwd ./Real_Estate_Website/client run dev &
+          cd client & pwd &
+          yarn run dev &
           sleep 2
 
       - name: Start backend in background
         run: |
-          cd ../.. &
+          cd server &
           pwd &
-          cd ./server &
           node index.js &
           sleep 2
         
