@@ -14,19 +14,16 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
 
-      - name: install yarn
       - run: cd client
       - run: pwd
       - run: yarn install
             
-      - name: install prisma@client
       - run:  cd client & pwd & yarn add @prisma/client & cd ../server & yarn add @prisma/client
       - run: pwd
       - run: yarn add @prisma/client
       - run: cd ../server
       - run: yarn add @prisma/client
 
-      - name: install express-async-handler
       - run: cd server
       - run: pwd
       - run: yarn add express-async-handler
@@ -34,12 +31,10 @@ jobs:
       - name: wait for dependencies to install
         run: sleep 2
         
-      - name: Start frontend in background
       - run: cd client
       - run: pwd
       - run: yarn run dev & sleep 2
 
-      - name: Start backend in background
       - run: cd server
       - run: pwd
       - run: node index.js & sleep 2
