@@ -35,8 +35,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6 
         with:
-          options: --headed
           browser: chrome
+          headed: true
           working-directory: ./Real_Estate_Website/client
             
         
