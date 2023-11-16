@@ -39,10 +39,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6 
         with:
-          run: yarn add express-async-handler
           browser: chrome
-          build: yarn build
-          start: yarn start
           headed: true
           working-directory: ./Real_Estate_Website/client
             
