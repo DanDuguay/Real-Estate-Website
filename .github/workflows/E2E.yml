@@ -30,7 +30,7 @@ jobs:
         run: |
           touch .env
           echo PORT=4000 >> .env
-          echo DATABASE_URL="mongodb+srv://johnnyaldeb:IMINhc4opL5EqF8j@cluster0.1exzuvv.mongodb.net/RealEstate?retryWrites=true&w=majority"  >> .env
+          echo DATABASE_URL="secrets.DATABASEURL"  >> .env
           cat .env
         working-directory: ./Real_Estate_Website/server
         
