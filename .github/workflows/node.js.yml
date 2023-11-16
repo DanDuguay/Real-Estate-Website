@@ -26,4 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn --cwd ./Real_Estate_Website/client/ install --check-files
+    - run: yarn add express-async-handler
+    - run: yarn add @prisma/client
     - run: yarn --cwd ./Real_Estate_Website/client/ build
