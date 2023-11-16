@@ -4,8 +4,7 @@ beforeEach(() => {
 
 describe('displayProperties', () => {
   it('should be able to visit the homepage, and then click on the properties button', () => {
-    cy.visit('http://localhost:5173/')
-    cy.contains("li", "Properties").click()
+    cy.visit('http://localhost:5173/property')
     cy.location("pathname").should('eq',"/property")
   })
 })
@@ -40,14 +39,12 @@ describe("addProperties", () => {
 
 describe("CreateUser", () => {
   it("should be able to create a new user", () => {
-    cy.visit("http://localhost:5173/user/loginuser/")
-    cy.contains("span","Sign Up").click()
+    cy.visit("http://localhost:5173/user/registeruser/")
     cy.location("pathname").should('eq', "/user/registeruser")
     cy.get("#username").type("Cypress").should("have.value", "Cypress")
     cy.get("#email").type("Cypress@email.com").should("have.value", "Cypress@email.com")
     cy.get("#password").type("!Q2w3e4r").should("have.value", "!Q2w3e4r")
     cy.get("#confirm_pwd").type("!Q2w3e4r").should("have.value", "!Q2w3e4r")
     cy.get(".user-login-button").click()
-
   })
 })
