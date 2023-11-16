@@ -26,15 +26,20 @@ jobs:
       - name: wait for dependencies to install
         run: sleep 10
         
-      - name: Start frontend & backend in background
+      - name: Start frontend in background
         run: |
           yarn --cwd ./Real_Estate_Website/client run dev &
-          yarn --cwd ./Real_Estate_Website/server run nodemon &
+          sleep 5
+
+      - name: Start backend in background
+        run: |
+          yarn --cwd ./Real_Estate_Website/server run start
           sleep 5
         
       - name: Cypress run
         uses: cypress-io/github-action@v6 
         with:
+          run: yarn add express-async-handler
           browser: chrome
           build: yarn build
           start: yarn start
