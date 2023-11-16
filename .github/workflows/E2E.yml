@@ -33,7 +33,9 @@ jobs:
 
       - name: Start backend in background
         run: |
-          node ./Real_Estate_Website/server/index.js &
+          cd .. &
+          cd ./server
+          node index.js &
           sleep 5
         
       - name: Cypress run
