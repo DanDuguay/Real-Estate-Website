@@ -34,7 +34,8 @@ jobs:
       - name: Start backend in background
         run: |
           cd .. &
-          cd ./server
+          pwd &
+          cd ./server &
           node index.js &
           sleep 5
         
