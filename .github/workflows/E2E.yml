@@ -6,7 +6,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./Real_Estate_Website
     steps:
       - name: Checkout
         uses: actions/checkout@v3
