@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
 import UserLogin from "../Login/UserLogin.jsx";
-import RequestVisit from "../RequestVisit/RequestVisit.jsx" 
+
 import Addproperty from "../AddProperty/Addproperty.jsx"
 
 
@@ -29,9 +29,7 @@ const Header = () => {
             <li>
               <Link to="/brokerpage">Brokers</Link>
             </li>
-            <li>
-              <Link to="/requestvisit">Request Visit</Link>
-            </li>
+            
             <li>
               <Link to="/">About Us</Link>
             </li>

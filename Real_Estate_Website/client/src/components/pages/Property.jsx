@@ -9,8 +9,12 @@ import {deleteProperty} from '../../utils/api'
 import { Link } from 'react-router-dom';
 import Request from '../RequestToVisit/Request'
 import { useState } from 'react'
+import { FaShower } from "react-icons/fa";
+import { AiTwotoneCar } from "react-icons/ai";
+import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
 
 import "./Property.css";
+
 
 
 
@@ -23,6 +27,7 @@ const Property = () => {
     const {data, isLoading, isError} = useQuery(["resd", id], ()=>
     getProperty(id))
 
+    
     const [modalOpened, setModalOpened] = useState(false);
 
     if(isLoading){
@@ -30,6 +35,7 @@ const Property = () => {
             <div className='wrapper'>
                 <div className="flexCenter paddings">
                     <PuffLoader/>
+
                 </div>
             </div>
         )
@@ -50,26 +56,49 @@ const Property = () => {
     <div className="wrapper flexCenter property-details">
         <Layout/>
 
-        <div className="flexColStart paddings innerWidth property-container">
-            <button onClick={()=> deleteProperty(id)}>Delete property</button>
+                    <div className="flexColStart paddings innerWidth property-container">
 
+                        {/* image */}
+                    <img className="image-container" src={data?.image} alt="home image" />
+                        
+                    </div>
+
+                    <div className="flexColStart left">
+
+             <div className="flexStart head" style={{ marginTop: "-60px"}} >
+              <span className="primaryText">{data?.title}</span>
+              <span style={{ fontSize: "1.5rem", paddingLeft: "100px", fontWeight: "bold", color: "#3498db"}}>
+  Price: $ {data?.price}
+</span>
+            </div>
+
+
+            {/* facilities */}
+         <div className="flexStart facilities">
             
-        </div>
 
-        <div>
-    
-        <Link to={`/property/update/${id}`}>
-          <button>Update Property</button>
-        </Link>
+        
+              {/* rooms */}
+              <div className="flexStart facility">
+                
+                <span>Number of Rooms: {data?.facilities.beds} </span>
+              </div>
+            </div>
 
-       
 
-       
-          
- 
-        </div>
-<div >
-<button
+            </div >
+                        <div style={{ width: "100%"}}>
+                    
+                        <button onClick={()=> deleteProperty(id)}>Delete property</button>
+                        <Link to={`/property/update/${id}`}>
+                        <button>Update Property</button>
+                        </Link>
+
+        
+                
+                        </div>
+            <div >
+            <button
                 className="button"
                 onClick={() => {
                    setModalOpened(true);
@@ -84,7 +113,7 @@ const Property = () => {
                 propertyId={id}
                 email={data.brokerEmail}
                 />
-</div>
+            </div>
         
 
       

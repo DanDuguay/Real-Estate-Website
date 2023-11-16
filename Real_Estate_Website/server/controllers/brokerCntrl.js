@@ -93,7 +93,7 @@ export const requestViste = asyncHandler(async (req, res) => {
     if (alreadyBooked.bookedVisits.some((visit) => visit.id === id)) {
       res
         .status(400)
-        .json({ message: "This residency is already booked by you" });
+        .json({ message: "This property is already booked by you" });
     } else {
       // console.log(id)
       // console.log(email)
