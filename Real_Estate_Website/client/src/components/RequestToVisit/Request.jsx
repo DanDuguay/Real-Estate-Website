@@ -1,7 +1,7 @@
 import React from 'react'
 import { MantineProvider, Modal, Button} from "@mantine/core";
 import { DatePicker, DatePickerInput } from "@mantine/dates";
-import '@mantine/core/styles.css';
+//import '@mantine/core/styles.css';
 import { useState } from 'react';
 import { useMutation } from "react-query";
 import { RequestVisit } from '../../utils/api';

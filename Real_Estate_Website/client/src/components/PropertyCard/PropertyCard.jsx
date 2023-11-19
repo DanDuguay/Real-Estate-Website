@@ -1,5 +1,5 @@
 import React from 'react'
-import './PropertyCard.css'
+//import './PropertyCard.css'
 import { useNavigate } from 'react-router-dom'
 
 

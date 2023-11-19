@@ -2,7 +2,7 @@ import { useRef, useState, useEffect} from "react";
 import { faCheck, faTimes, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
-import './UserLogin_CSS.css'
+//import './UserLogin_CSS.css'
 import { createUser } from '../../utils/api';
 
 const USER_REGEX = /^[a-zA-z][a-z-A-Z0-9-_]{3,23}$/;

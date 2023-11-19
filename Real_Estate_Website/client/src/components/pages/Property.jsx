@@ -13,7 +13,7 @@ import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
 
-import "./Property.css";
+//import "./Property.css";
 
 
 

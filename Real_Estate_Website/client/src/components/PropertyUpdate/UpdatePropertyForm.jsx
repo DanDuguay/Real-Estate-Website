@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./UpdatePropertyForm.css"
+//import "./UpdatePropertyForm.css"
 import { useLocation } from 'react-router-dom'
 import { updateProperty } from '../../utils/api';
 

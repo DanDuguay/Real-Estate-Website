@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./Addproperty.css";
+//import "./Addproperty.css";
 import { addProperty } from "../../utils/api";
 
 const Addproperty = () => {
@@ -47,8 +47,9 @@ const Addproperty = () => {
       console.error("Error uploading property:", error);
     }
   };
-  return (
-    <div>
+  return ( 
+  <div className="background">
+      <div className="user-login-section">
       <h1>Add Property</h1>
       <form>
         <label>
@@ -143,7 +144,8 @@ const Addproperty = () => {
           Submit
         </button>
       </form>
-    </div>
+      </div>
+  </div>
   );
 };
 
