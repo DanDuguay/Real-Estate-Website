@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { getAllBrokers } from "../../utils/api";
 import { Link } from "react-router-dom";
-import "./BrokerRead.css";
+//import "./BrokerRead.css";
 
 const SeeBrokers = () => {
   const { data, isError, isLoading, refetch } = useQuery(
@@ -12,6 +12,7 @@ const SeeBrokers = () => {
   );
 
   return (
+   <div className = "body2">
     <div className="broker-container">
       <h1>Brokers List</h1>
       {isLoading && <p>Loading brokers...</p>}
@@ -36,6 +37,8 @@ const SeeBrokers = () => {
       )}
       <button onClick={refetch}>Refresh</button>
     </div>
+  </div>
+  
   );
 };
 

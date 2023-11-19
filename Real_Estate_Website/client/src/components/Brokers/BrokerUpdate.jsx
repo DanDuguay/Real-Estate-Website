@@ -42,7 +42,9 @@ const BrokerUpdate = () => {
   };
 
   return (
-    <div>
+  
+  <div className = "broker-page-body">
+    <div className = "broker-page-section">
       <h1>Update Broker</h1>
       <form>
         <label>
@@ -90,6 +92,7 @@ const BrokerUpdate = () => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

@@ -2,7 +2,7 @@ import {useRef, useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile.jsx";
 import UserRegister from "./UserRegister.jsx";
-import "./UserLogin_CSS.css"
+//import "./UserLogin_CSS.css"
 import { UserExists } from "../../../../server/controllers/userCntrl";
 import {prisma} from "../../../../server/config/prismaConfig.js";
 
@@ -36,7 +36,7 @@ const Login = () => {
 
 
     return (
-        <body className="user-login-body">
+        <body className="user-login-body" >
         {success ? (
             <section className="user-login-section">
                 <h1>You are logged in!</h1>

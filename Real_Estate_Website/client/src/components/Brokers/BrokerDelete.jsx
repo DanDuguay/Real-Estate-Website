@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getBroker, deleteBroker } from "../../utils/api";
-import "./BrokerDelete.css";
+//import "./BrokerDelete.css";
 
 const BrokerDelete = () => {
   const { brokerId } = useParams();
@@ -42,6 +42,7 @@ const BrokerDelete = () => {
   };
 
   return (
+  <div className = "broker-page-body">
     <div className="broker-container">
       <h1>Delete Broker</h1>
       <p>Are you sure you want to delete the following broker?</p>
@@ -60,6 +61,8 @@ const BrokerDelete = () => {
         </button>
       </div>
     </div>
+
+  </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../Layout/Layout'
-import "./properties.css"
+//import "./properties.css"
 import useProperties from '../../hooks/useProperties'
 import PropertyCard from '../PropertyCard/PropertyCard'
 import {PuffLoader} from 'react-spinners'
@@ -33,7 +33,7 @@ const Houses = () => {
     
   return (
     
-    <div>
+    <div className='propertiesBackground'>
         <div>
         <Layout/>
         </div >
@@ -57,7 +57,7 @@ const Houses = () => {
 
         </div>
 
-        </div>
+    </div>
   )
 }
 

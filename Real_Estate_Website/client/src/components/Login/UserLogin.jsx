@@ -2,7 +2,7 @@ import {useRef, useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile.jsx";
 import UserRegister from "./UserRegister.jsx";
-import "./UserLogin_CSS.css"
+//import "./UserLogin_CSS.css"
 
 const UserLogin = () => {
     const userRef = useRef();
@@ -31,7 +31,7 @@ const UserLogin = () => {
     }
 
     return (
-        <body className="user-login-body">
+        <body className="user-login-body" >
             {success ? (
                 <section className="user-login-section">
                     <h1>You are logged in!</h1>
@@ -46,7 +46,7 @@ const UserLogin = () => {
             <h1>Sign In</h1>
             <form className="user-login-form" onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>
-                <input className="user-login-input"
+                <input className="user-login-input" 
                     type="text"
                     id="username"
                     ref={userRef}
@@ -56,8 +56,8 @@ const UserLogin = () => {
                     required
                 />
 
-                <label className="user-login-label" htmlFor="password">Password</label>
-                <input className="user-login-input"
+                <label className="user-login-label"  htmlFor="password">Password</label>
+                <input className="user-login-input" 
                     type="password"
                     id="password"
                     onChange={(e)=> setPwd(e.target.value)}
@@ -65,7 +65,7 @@ const UserLogin = () => {
                     required
                 />
 
-                <button className="user-login-button">sign In</button>
+                <button className="user-login-button" >sign In</button>
             </form>
             <p>
                 Need an Account?<br />
