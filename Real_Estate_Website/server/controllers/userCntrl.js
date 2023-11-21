@@ -1,5 +1,6 @@
 import asynHandler from 'express-async-handler'
  import { prisma } from "../config/prismaConfig.js"
+import asyncHandler from "express-async-handler";
 
  export const createUser = asynHandler(async(req, res) =>{
     const {name, email, password, role} = req.body.data
@@ -22,6 +23,7 @@ import asynHandler from 'express-async-handler'
         })
     }else res.status(201).send({message: "User already exists"})
  });
+
 
 export const UserExists = asynHandler(async(req,res) =>{
     const {email, password} = req.body.data;
