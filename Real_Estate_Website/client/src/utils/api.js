@@ -208,20 +208,49 @@ export const submitPropertyOffer = async (offerData) => {
 
 export const createUser = async (data) => {
     try {
-        const response = await api.post('/user/registeruser', {data}, {
+        const response = await api.post('/user/registeruser', data, {
             timeout: 10 * 1000,
         });
 
         if (response.status === 400 || response.status === 500) {
             throw response.data;
         }
-        window.location.href = '/';
+      window.location.href = "/user";
         return response.data;
     }   catch (error) {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong while creating a user");
         throw error;
+    }};
+
+export const userExists = async (data) => {
+  try {
+    const response = await api.post('/user/checkuser', data, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
     }
-};
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong while fetching a user");
+    throw error;
+  }};
+
+export const getUser = async (data) => {
+  try {
+    const response = await api.post('/user/getuser', {data}, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong fetching a user");
+    throw error;
+  }};
 
 export const RequestVisit = async(date, propertyId, email) =>{
   try {
@@ -239,5 +268,4 @@ export const RequestVisit = async(date, propertyId, email) =>{
   } catch (error) {
    
     throw error;
-  }
-}
+  }};

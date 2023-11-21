@@ -4,6 +4,12 @@ import UserProfile from "../UserProfile/UserProfile.jsx";
 import UserRegister from "./UserRegister.jsx";
 import Header from "../Header/Header.jsx";
 import Layout from "../Layout/Layout.jsx";
+import {prisma} from "../../../../server/config/prismaConfig.js";
+import {CookiesProvider, useCookies} from "react-cookie";
+import {getAllBrokers, getProperty, getUser, userExists} from "../../utils/api.js";
+import {useQuery} from "react-query";
+import useCheckUser from "../../hooks/useCheckUser.jsx";
+import axios from "axios";
 //import "./UserLogin_CSS.css"
 
 const UserLogin = () => {
@@ -14,6 +20,8 @@ const UserLogin = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+
+    const [cookies, setCookie] = useCookies(["user"]);
 
     useEffect(() => {
         userRef.current.focus();
@@ -26,20 +34,25 @@ const UserLogin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user, pwd);
-        await prisma.user.count()
-        setUser('');
-        setPwd('');
-        setSuccess(true);
+        const data = {name: user, password: pwd}
+        console.log("[UserLogin.jsx][handleSubmit][checkUser]: " + checkUser)
+        if (checkUser > 0)
+        {
+            console.log("[UserLogin.jsx][handleSubmit][userObj]: " + userObj)
+            setCookie("user", userObj);
+            setUser('');
+            setPwd('');
+            setSuccess(true);
+        }
     }
 
     return (
-        <>
+        <CookiesProvider>
             <Layout/>
             <body className="user-login-body" >
-            {success ? (
+            {cookies.user ? (
                 <section className="user-login-section">
-                    <h1>You are logged in!</h1>
+                    <h1>You are logged in, {cookies.user["name"]}</h1>
                     <br />
                     <p>
                         <Link to="/userprofile">Go to User Profile</Link>
@@ -81,7 +94,7 @@ const UserLogin = () => {
                 </section>
             )}
             </body>
-        </>
+        </CookiesProvider>
 
     )
 }

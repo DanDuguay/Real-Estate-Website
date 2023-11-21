@@ -23,22 +23,39 @@ import asynHandler from 'express-async-handler'
     }else res.status(201).send({message: "User already exists"})
  });
 
-export const UserExists = asynHandler(async(req,res) =>{
-    const {email, password} = req.body.data;
+export const userExists = asynHandler(async(req,res) =>{
+    // console.log("[userExists][req.body.password]: " +req.body.password);
+    const password = req.body.password;
     let getUser
-    console.log(req.body.data)
+    try {
+        getUser = await prisma.user.count({
+            where: {password: password}
+        })
+        //console.log("[userExists][getUser]: " + getUser)
+    } catch { return 0}
+
+    if (getUser !== null){
+        res.status(200).send({response: 1})
+    } else res.status(201).send({message: "User doesn't exist"})
+});
+
+export const getUser = asynHandler(async(req, res) => {
+    // console.log("[getUser][req.body.password]: " + req.body.password);
+    const password = req.body.password;
+    let getUser
     try {
         getUser = await prisma.user.findUnique({
-            where: {email, password}
+            where: {password: password}
         })
     } catch { return null}
 
     if (getUser !== null){
-        res.send({message: "User exists", user: exists})
+        res.send({
+            message: "User exists",
+            user: getUser
+        })
     } else res.status(201).send({message: "User doesn't exist"})
-});
-
-
+})
 
 
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile.jsx";
 import UserRegister from "./UserRegister.jsx";
 //import "./UserLogin_CSS.css"
-import { UserExists } from "../../../../server/controllers/userCntrl";
+import { userExists } from "../../../../server/controllers/userCntrl";
 import {prisma} from "../../../../server/config/prismaConfig.js";
 import Header from "../Header/Header.jsx";
 import Layout from "../Layout/Layout.jsx";

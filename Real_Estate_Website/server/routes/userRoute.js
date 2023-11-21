@@ -1,9 +1,10 @@
 import express from "express";
-import { createUser, UserExists} from "../controllers/userCntrl.js";
+import { createUser, userExists, getUser} from "../controllers/userCntrl.js";
 const router = express.Router()
 
 router.post("/registeruser", createUser)
-router.post("/getuser", UserExists)
+router.post("/checkuser", userExists)
+router.post("/getuser", getUser)
 
 
 
