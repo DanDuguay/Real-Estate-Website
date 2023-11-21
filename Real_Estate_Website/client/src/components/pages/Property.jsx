@@ -53,71 +53,61 @@ const Property = () => {
 
    
   return (
-    <div className="wrapper flexCenter property-details">
-        <Layout/>
+      <>
+          <Layout/>
+          <div className="wrapper flexCenter property-details">
+              <div className="flexColStart paddings innerWidth property-container">
 
-                    <div className="flexColStart paddings innerWidth property-container">
+                  {/* image */}
+                  <img className="image-container" src={data?.image} alt="home image" />
 
-                        {/* image */}
-                    <img className="image-container" src={data?.image} alt="home image" />
-                        
-                    </div>
+              </div>
 
-                    <div className="flexColStart left">
+              <div className="flexColStart left">
 
-             <div className="flexStart head" style={{ marginTop: "-60px"}} >
-              <span className="primaryText">{data?.title}</span>
-              <span style={{ fontSize: "1.5rem", paddingLeft: "100px", fontWeight: "bold", color: "#3498db"}}>
+                  <div className="flexStart head" style={{ marginTop: "-60px"}} >
+                      <span className="primaryText">{data?.title}</span>
+                      <span style={{ fontSize: "1.5rem", paddingLeft: "100px", fontWeight: "bold", color: "#3498db"}}>
   Price: $ {data?.price}
 </span>
-            </div>
+                  </div>
+                  {/* facilities */}
+                  <div className="flexStart facilities">
+                      {/* rooms */}
+                      <div className="flexStart facility">
 
+                          <span>Number of Rooms: {data?.facilities.beds} </span>
+                      </div>
+                  </div>
+              </div >
+              <div style={{ width: "100%"}}>
 
-            {/* facilities */}
-         <div className="flexStart facilities">
-            
+                  <button onClick={()=> deleteProperty(id)}>Delete property</button>
+                  <Link to={`/property/update/${id}`}>
+                      <button>Update Property</button>
+                  </Link>
 
-        
-              {/* rooms */}
-              <div className="flexStart facility">
-                
-                <span>Number of Rooms: {data?.facilities.beds} </span>
               </div>
-            </div>
+              <div >
+                  <button
+                      className="button"
+                      onClick={() => {
+                          setModalOpened(true);
+                      }}
+                  >
+                      Request to visit
+                  </button>
 
+                  <Request
+                      opened={modalOpened}
+                      setOpened={setModalOpened}
+                      propertyId={id}
+                      email={data.brokerEmail}
+                  />
+              </div>
+          </div>
+      </>
 
-            </div >
-                        <div style={{ width: "100%"}}>
-                    
-                        <button onClick={()=> deleteProperty(id)}>Delete property</button>
-                        <Link to={`/property/update/${id}`}>
-                        <button>Update Property</button>
-                        </Link>
-
-        
-                
-                        </div>
-            <div >
-            <button
-                className="button"
-                onClick={() => {
-                   setModalOpened(true);
-                }}
-              >
-                Request to visit
-        </button>
-            
-                <Request
-                opened={modalOpened}
-                setOpened={setModalOpened}
-                propertyId={id}
-                email={data.brokerEmail}
-                />
-            </div>
-        
-
-      
-    </div>
   )
 }
 

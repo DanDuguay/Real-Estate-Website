@@ -119,13 +119,15 @@ div {
   align-items: center;
   padding: 1rem 0.5rem;
   background-image: url(luxury_house_two.jpeg);
+     background-size: cover;
 }
 
 
 
 .broker-page-link {
   font-family: "Nunito", sans-serif;
-  font-size: 22px;
+    text-shadow: 0 0 5px black;
+  font-size: 30px;
   color: #fff;
   border-radius: 0.5rem;
 }
@@ -155,10 +157,11 @@ div {
 
 .broker-container {
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    padding: 5vw;
     border-radius: 5px;
     color: #fff;
     text-align: center;
+    text-shadow: 0 0 5px black;
   }
   
   /* Additional style for the 'No, Cancel' button */

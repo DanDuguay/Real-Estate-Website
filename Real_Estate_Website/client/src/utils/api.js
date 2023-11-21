@@ -223,7 +223,6 @@ export const createUser = async (data) => {
     }
 };
 
-
 export const RequestVisit = async(date, propertyId, email) =>{
   try {
     await api.post(

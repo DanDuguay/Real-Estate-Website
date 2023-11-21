@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 //import "./Addproperty.css";
 import { addProperty } from "../../utils/api";
+import Layout from "../Layout/Layout.jsx";
 
 const Addproperty = () => {
   const [propertyData, setPropertyData] = useState({
@@ -47,105 +48,110 @@ const Addproperty = () => {
       console.error("Error uploading property:", error);
     }
   };
-  return ( 
-  <div className="background">
-      <div className="user-login-section">
-      <h1>Add Property</h1>
-      <form>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={propertyData.title}
-            onChange={handleChange}
-          />
-        </label>
+  return (
+      <>
+        <Layout/>
+        <div className="background">
 
-        <label>
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={propertyData.description}
-            onChange={handleChange}
-          />
-        </label>
+          <div className="user-login-section">
+            <h1>Add Property</h1>
+            <form>
+              <label>
+                Title:
+                <input
+                    type="text"
+                    name="title"
+                    value={propertyData.title}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Price:
-          <input
-            type="number"
-            name="price"
-            value={propertyData.price}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Description:
+                <input
+                    type="text"
+                    name="description"
+                    value={propertyData.description}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={propertyData.address}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Price:
+                <input
+                    type="number"
+                    name="price"
+                    value={propertyData.price}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          City:
-          <input
-            type="text"
-            name="city"
-            value={propertyData.city}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Address:
+                <input
+                    type="text"
+                    name="address"
+                    value={propertyData.address}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Country:
-          <input
-            type="text"
-            name="country"
-            value={propertyData.country}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                City:
+                <input
+                    type="text"
+                    name="city"
+                    value={propertyData.city}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Image URL:
-          <input
-            type="text"
-            name="image"
-            value={propertyData.image}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Country:
+                <input
+                    type="text"
+                    name="country"
+                    value={propertyData.country}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          number of beds:
-          <input
-            type="number"
-            name="facilities"
-            value={propertyData.facilities.bedrooms}
-            onChange={handleChange}
-          />
-          <label>
-            Broker Email:
-            <input
-              type="email"
-              name="brokerEmail"
-              value={propertyData.brokerEmail}
-              onChange={handleChange}
-            />
-          </label>
-        </label>
-        <button type="button" name="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-      </div>
-  </div>
+              <label>
+                Image URL:
+                <input
+                    type="text"
+                    name="image"
+                    value={propertyData.image}
+                    onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                number of beds:
+                <input
+                    type="number"
+                    name="facilities"
+                    value={propertyData.facilities.bedrooms}
+                    onChange={handleChange}
+                />
+                <label>
+                  Broker Email:
+                  <input
+                      type="email"
+                      name="brokerEmail"
+                      value={propertyData.brokerEmail}
+                      onChange={handleChange}
+                  />
+                </label>
+              </label>
+              <button type="button" name="submit" onClick={handleSubmit}>
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </>
+
   );
 };
 

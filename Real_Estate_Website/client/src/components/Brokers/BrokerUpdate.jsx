@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Import useParams to extract route parameters
 import { getBroker, updateBroker } from "../../utils/api";
+import Layout from "../Layout/Layout.jsx";
 
 const BrokerUpdate = () => {
   const { brokerId } = useParams(); // Use useParams to get the brokerId from the URL
@@ -42,57 +43,59 @@ const BrokerUpdate = () => {
   };
 
   return (
-  
-  <div className = "broker-page-body">
-    <div className = "broker-page-section">
-      <h1>Update Broker</h1>
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={brokerData.name}
-            onChange={handleChange}
-          />
-        </label>
+      <>
+        <Layout/>
+        <div className = "broker-page-body">
+          <div className = "broker-page-section">
+            <h1>Update Broker</h1>
+            <form>
+              <label>
+                Name:
+                <input
+                    type="text"
+                    name="name"
+                    value={brokerData.name}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={brokerData.email}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Email:
+                <input
+                    type="email"
+                    name="email"
+                    value={brokerData.email}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Phone Number:
-          <input
-            type="tel"
-            name="phoneNumber"
-            value={brokerData.phoneNumber}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Phone Number:
+                <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={brokerData.phoneNumber}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={brokerData.address}
-            onChange={handleChange}
-          />
-        </label>
+              <label>
+                Address:
+                <input
+                    type="text"
+                    name="address"
+                    value={brokerData.address}
+                    onChange={handleChange}
+                />
+              </label>
 
-        <button type="button" onClick={handleSubmit}>
-          Update Broker
-        </button>
-      </form>
-    </div>
-  </div>
+              <button type="button" onClick={handleSubmit}>
+                Update Broker
+              </button>
+            </form>
+          </div>
+        </div>
+      </>
   );
 };
 

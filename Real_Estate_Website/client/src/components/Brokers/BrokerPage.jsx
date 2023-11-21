@@ -19,14 +19,6 @@ const BrokerPage = () => {
               <Link to="/brokerread" className="broker-page-link">
                 See Brokers
               </Link>
-              <br />
-              <Link to="/brokerupdate" className="broker-page-link">
-                Update Broker
-              </Link>
-              <br />
-              <Link to="/brokerdelete" className="broker-page-link">
-                Delete Broker
-              </Link>
             </p>
           </section>
         </div>

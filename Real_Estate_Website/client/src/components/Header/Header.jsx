@@ -12,7 +12,7 @@ const Header = () => {
     <section className="h-wrapper">
       <div className="flexCenter paddings innerWidth h-container">
         <Link to="/">
-          <img src="./logo.png" alt="logo" width={120}></img>
+          <img src="../../../public/logo.png" alt="logo" width={120}></img>
         </Link>
         
         <nav className="flexCenter h-menu">
@@ -37,9 +37,9 @@ const Header = () => {
               <div className="dropdown">
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
-                  <Link to="user/loginuser">As User</Link>
-                  <Link to="user/loginbroker">As Broker</Link>
-                  <Link to="user/loginadmin">As Administrator</Link>
+                  <Link to="/user/loginuser">As User</Link>
+                  <Link to="/user/loginbroker">As Broker</Link>
+                  <Link to="/user/loginadmin">As Administrator</Link>
                 </div>
               </div>
             </li>
