@@ -1,5 +1,6 @@
 import asynHandler from 'express-async-handler'
  import { prisma } from "../config/prismaConfig.js"
+import asyncHandler from "express-async-handler";
 
  export const createUser = asynHandler(async(req, res) =>{
     const name= req.body.data;
@@ -28,8 +29,8 @@ import asynHandler from 'express-async-handler'
  });
 
 export const userExists = asynHandler(async(req,res) =>{
-    // console.log("[userExists][req.body.password]: " +req.body.password);
     const password = req.body.password;
+
     let getUser
     try {
         getUser = await prisma.user.count({
