@@ -6,6 +6,7 @@ import { userRoute } from "./routes/userRoute.js";
 import { propertyRoute } from "./routes/propertyRoute.js";
 import { BrokerRoute } from "./routes/brokerRoute.js";
 import { offerRoute } from "./routes/offerRoute.js";
+import {adminRoute} from "./routes/adminRoute.js";
 
 dotenv.config();
 
@@ -25,4 +26,5 @@ app.use("/api/user", userRoute);
 app.use("/api/property", propertyRoute);
 app.use("/api/broker", BrokerRoute);
 app.use("/api/offer", offerRoute);
+app.use("/api/admin", adminRoute);
 

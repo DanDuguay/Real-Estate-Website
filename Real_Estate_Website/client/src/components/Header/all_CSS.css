@@ -27,7 +27,8 @@ div {
 
   .body2 {
     background-image: url(luxury_house_two.jpeg);
-    background-size: cover;
+      padding: 5vw 5vw 12vw;
+      background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -157,7 +158,8 @@ div {
 
 .broker-container {
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 5vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
     border-radius: 5px;
     color: #fff;
     text-align: center;
@@ -337,7 +339,7 @@ div {
     
     }
 
-    /* User Login */
+    /* User BrokerLogin */
 
 .user-login-section {
     margin: 0;

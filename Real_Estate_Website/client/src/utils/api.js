@@ -215,7 +215,7 @@ export const createUser = async (data) => {
         if (response.status === 400 || response.status === 500) {
             throw response.data;
         }
-      window.location.href = "/user";
+      window.location.href = "/user/loginuser";
         return response.data;
     }   catch (error) {
         toast.error("Something went wrong while creating a user");
@@ -251,6 +251,38 @@ export const getUser = async (data) => {
     toast.error("Something went wrong fetching a user");
     throw error;
   }};
+
+export const getBrokerCredentials = async (data) => {
+  try {
+    const response = await api.post('/broker/getbroker', {data}, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong fetching a broker");
+    throw error;
+  }
+};
+
+export const getAdmin = async (data) => {
+  try {
+    const response = await api.post('/admin/getadmin', {data}, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong fetching an admin")
+    throw error;
+  }
+};
 
 export const RequestVisit = async(date, propertyId, email) =>{
   try {

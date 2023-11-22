@@ -11,6 +11,7 @@ const BrokerCreate = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -22,8 +23,8 @@ const BrokerCreate = () => {
         return;
       }
 
-      console.log(`name: ${name}. Email: ${email}`);
-      const response = await createBroker({ name, email });
+      console.log(`name: ${name}. Email: ${email}, Password: ${password}`);
+      const response = await createBroker({ name, email, password });
       if (response && response.success) {
         setSuccess(true);
       } else {
@@ -83,6 +84,18 @@ const BrokerCreate = () => {
                 value={email}
                 required
               />
+
+              <label className="broker-page-label" htmlFor="password">
+                Password
+              </label>
+              <input
+                className="broker-page-input"
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+                />
 
               <button type="submit">Submit</button>
             </form>
