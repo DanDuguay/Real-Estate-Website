@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { getAllBrokers } from "../../../utils/api.js";
 import { Link } from "react-router-dom";
 import Layout from "../../Layout/Layout.jsx";
-import useBrokers from "../components/useBrokers.jsx";
+import useBrokers from "../components/UseBrokers.jsx";
 //import "./BrokerRead.css";
 
 const SeeBrokers = () => {
