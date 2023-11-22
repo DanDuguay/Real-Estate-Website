@@ -1,18 +1,25 @@
 import {useRef, useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile.jsx";
 import UserRegister from "./UserRegister.jsx";
 //import "./UserLogin_CSS.css"
-import { UserExists } from "../../../../server/controllers/userCntrl";
+import { userExists } from "../../../../server/controllers/userCntrl";
 import {prisma} from "../../../../server/config/prismaConfig.js";
 import Header from "../Header/Header.jsx";
 import Layout from "../Layout/Layout.jsx";
+import useAuth from "../../hooks/useAuth.jsx";
+import axios, {AxiosError} from "axios";
 
-const Login = () => {
+const BrokerLogin = () => {
+    const { setAuth } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState('');
+    const [broker, setBroker] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -23,17 +30,28 @@ const Login = () => {
 
     useEffect(()=> {
         setErrMsg("");
-    }, [user, pwd])
+    }, [broker, pwd])
 
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user, pwd);
-        setUser('');
-        setPwd('');
-        setSuccess(true);
+        const data = {name: broker, password: pwd}
+        try {
+            const response = await axios.post("http://localhost:4000/api/broker/getbroker", data, {
+            });
+            const response_role = response.data.broker.role;
+            setAuth({name: broker, password: pwd, role: [response_role]})
+            setBroker('');
+            setPwd('');
+            navigate(from, { replace: true});
+
+        } catch (err) {
+            if (err && err instanceof AxiosError)
+                setErrMsg(err.response?.data.message);
+            else if (err && err instanceof Error) setErrMsg(err.message)
+        }
     }
 
 
@@ -41,15 +59,6 @@ const Login = () => {
         <>
             <Layout/>
             <body className="user-login-body" >
-            {success ? (
-                <section className="user-login-section">
-                    <h1>You are logged in!</h1>
-                    <br />
-                    <p>
-                        <Link to="/userprofile">Go to User Profile</Link>
-                    </p>
-                </section>
-            ) : (
                 <section className="user-login-section">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Sign In</h1>
@@ -60,8 +69,8 @@ const Login = () => {
                                id="username"
                                ref={userRef}
                                autoComplete="off"
-                               onChange={(e)=> setUser(e.target.value)}
-                               value={user}
+                               onChange={(e)=> setBroker(e.target.value)}
+                               value={broker}
                                required
                         />
 
@@ -77,9 +86,8 @@ const Login = () => {
                         <button className="user-login-button">sign In</button>
                     </form>
                 </section>
-            )}
             </body>
         </>
     )
 }
-export default Login
+export default BrokerLogin

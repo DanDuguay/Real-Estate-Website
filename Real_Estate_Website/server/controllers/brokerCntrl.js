@@ -3,7 +3,8 @@ import { prisma } from "../config/prismaConfig.js";
 
 export const createBroker = asyncHandler(async (req, res) => {
   console.log("creating a broker");
-  const { name, email } = req.body.data;
+  const { name, email, password } = req.body.data;
+  const role = "Broker"
 
   const brokerExists = await prisma.broker.findUnique({
     where: { email: email },
@@ -14,6 +15,8 @@ export const createBroker = asyncHandler(async (req, res) => {
       data: {
         name,
         email,
+        password,
+        role
       },
     });
     res.send({
@@ -21,6 +24,23 @@ export const createBroker = asyncHandler(async (req, res) => {
       broker: broker,
     });
   } else res.status(201).send({ message: "Broker already exists" });
+});
+
+export const getBrokerCredentials = asyncHandler(async(req, res) => {
+  const password = req.body.password;
+  let getBroker
+  try {
+    getBroker = await prisma.broker.findUnique( {
+      where: {password: password}
+    })
+  } catch { return null}
+
+  if (getBroker !== null){
+    res.send({
+      message: "Broker exists",
+      broker: getBroker
+    })
+  } else res.status(201).send({message: "Broker doesn't exist"})
 });
 
 export const getBroker = asyncHandler(async (req, res) => {

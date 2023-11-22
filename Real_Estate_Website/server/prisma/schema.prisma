@@ -23,8 +23,18 @@ model Broker {
     id String @id @default(auto()) @map("_id") @db.ObjectId
     name String?
     email String @unique
+    password String @unique
+    role String
     bookedVisits Json[]
     PropertiesResponsible Properties[] @relation("Responsible")
+}
+
+model Admin {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  email String @unique
+  password String @unique
+  role String
 }
 
 model Properties{

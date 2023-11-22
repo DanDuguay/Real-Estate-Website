@@ -70,7 +70,7 @@ const Register = () => {
                 role: "User"
             };
             console.log(data);
-            createUser(data);
+            await createUser(data);
 
             alert("User registered successfully");
         } catch (error) {
@@ -88,7 +88,7 @@ const Register = () => {
                 <section className="user-login-section">
                     <h1>Success!</h1>
                     <p>
-                        <Link to="/loginuser">Sign In</Link>
+                        <Link to="/user/loginuser">Sign In</Link>
                     </p>
                 </section>
             ) : (
@@ -191,7 +191,7 @@ const Register = () => {
                     <p>
                         Already registered? <br />
                         <span className="line">
-                   <Link to="/loginuser">Sign In</Link>
+                   <Link to="/user/loginuser">Sign In</Link>
                </span>
                     </p>
                 </section>
