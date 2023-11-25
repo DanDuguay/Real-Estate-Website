@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import "./PropertyOffer.css";
 import { submitPropertyOffer } from "../../utils/api";
+import "../Header/all_CSS.css";
 
 const PropertyOffer = () => {
   const [offer, setOffer] = useState({

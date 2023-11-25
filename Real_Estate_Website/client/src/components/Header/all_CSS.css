@@ -543,7 +543,9 @@ textarea {
     /* Property Offer */
 
     .property-offer-container {
-        background-color: white;
+        background-color: rgba(0,0,10,0.5);
+        color: rgb(245,245,245);
+        text-shadow: 0px 0px 5px black;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -568,7 +570,7 @@ textarea {
       
       /* Set text color to black for the budget number */
       .budget-number {
-        color: black;
+        color: goldenrod;
       }
       
       input[type="text"],
