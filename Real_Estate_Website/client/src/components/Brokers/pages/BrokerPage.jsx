@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import Layout from "../../Layout/Layout.jsx";
 //import "./Broker_CSS.css";
 import Header from "../../Header/Header.jsx";
 
 const BrokerPage = () => {
   return (
     <>
+      <Layout />
       <div style={{ background: "var(--blue)" }}>
-        <Header />
         <div className="broker-page-body">
           <section className="broker-page-section">
             <h1>What would you like to do?</h1>
@@ -17,7 +18,7 @@ const BrokerPage = () => {
               </Link>
               <br />
               <Link to="/brokerread" className="broker-page-link">
-                See Brokers
+                View All Brokers
               </Link>
             </p>
           </section>
