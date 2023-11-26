@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../Header/Header.jsx";
+import Header from "../../Header/Header.jsx";
 //import "./Broker_CSS.css";
-import { createBroker } from "../../utils/api"; // Update the import statement
+import { createBroker } from "../../../utils/api.js"; // Update the import statement
 
 const BrokerCreate = () => {
   const userRef = useRef();
@@ -95,7 +95,7 @@ const BrokerCreate = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 required
-                />
+              />
 
               <button type="submit">Submit</button>
             </form>

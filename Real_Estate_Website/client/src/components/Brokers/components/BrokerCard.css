@@ -1,0 +1,58 @@
+.broker-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: var(--blue);
+  transition: box-shadow 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.broker-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box-shadow on hover */
+}
+
+.broker-info {
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.broker-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.broker-email,
+.broker-role,
+.details-label {
+  font-size: 14px;
+  color: black;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.broker-details,
+.broker-properties {
+  margin-top: 10px;
+}
+
+.image-container {
+  overflow: hidden; /* Hide overflowing content to ensure it doesn't affect layout */
+  height: 150px; /* Set the desired height for the image container */
+}
+
+.broker-image {
+  width: 100%; /* Make the image take up 100% of the width within its container */
+  height: auto; /* Allow the image to scale proportionally based on its width */
+  display: block; /* Remove any default inline styles that might affect the layout */
+  margin: 0 auto; /* Center the image horizontally within its container */
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
