@@ -30,28 +30,36 @@ const MortgageCalculator = () => {
         <>
             <Layout/>
             <div className="mortgage-calculator-container">
+                <br></br>
                 <h1>Mortgage Calculator</h1>
                 <form onSubmit={handleSubmit} onReset={handleReset} className="mortgage-calculator-form">
                     <div className="form-group">
-                        <label className="mortgage-calculator-label" htmlFor="homePrice">Home Price</label>
+                        <label className="mortgage-calculator-label" htmlFor="homePrice">Home Price:
+                        <span className="homePrice-number"> ${homePrice}</span>
+                        </label>
                         <input
                             required
                             type="number"
                             name="homePrice"
                             value={homePrice}
                             onChange={(e) => setHomePrice(Number(e.target.value))}/>
-                            <span className="homePrice-number">${homePrice}</span>
                     </div>
+                    <br></br>
                     <div className="form-group">
-                        <label className="mortgage-calculator-label" htmlFor="downPayment">Down Payment</label>
+                        <label className="mortgage-calculator-label" htmlFor="downPayment">Down Payment
+                        <span className="downPayment-number"> ${downPayment}</span>
+                        </label>
                         <input
                             type="number"
                             name="downPayment"
                             onChange={(e) => setDownPayment(Number(e.target.value))}/>
-                        <span className="downPayment-number">${downPayment}</span>
+                        
                     </div>
+                    <br></br>
                     <div className="form-group">
-                        <label className="mortgage-calculator-label" htmlFor="monthlyInterestRate">Yearly Interest Rate</label>
+                        <label className="mortgage-calculator-label" htmlFor="monthlyInterestRate">Yearly Interest Rate: 
+                        <span className="monthlyInterestRate-number"> {((monthlyInterestRate*100)*12).toFixed(2)}%</span>
+                        </label>
                         <input
                             required
                             type="number"
@@ -60,26 +68,29 @@ const MortgageCalculator = () => {
                             max="100"
                             step="0.01"
                             onChange={(e) => setMonthlyInterestRate((Number(e.target.value)/100/12))}/>
-                        <span className="monthlyInterestRate-number">{((monthlyInterestRate*100)*12).toFixed(2)}%</span>
                     </div>
+                    <br></br>
                     <div className="form-group">
-                        <label className="mortgage-calculator-label" htmlFor="loanTermInYears">Loan Term In Years</label>
+                        <label className="mortgage-calculator-label" htmlFor="loanTermInYears">Loan Term In Years: 
+                        <span className="homePrice-number"> {loanTermInMonths/12} years</span>
+                        </label>
                         <input
                             required
                             type="number"
                             name="loanTermInYears"
                             onChange={(e) => setLoanTermInMonths(Number(e.target.value)*12)}/>
-                        <span className="homePrice-number">{loanTermInMonths/12}</span>
                     </div>
+                    <br></br>
                     <div className="form-group">
-                        <label className="mortgage-calculator-label" htmlFor="monthlyMortgagePayment">Monthly Mortgage Payment</label>
+                        <label className="mortgage-calculator-label" htmlFor="monthlyMortgagePayment">Monthly Mortgage Payment:
+                        <span className="monthlyMortgagePayment-number"> ${monthlyMortgagePayment}</span>
+                        </label>
                         <input
                             readOnly
                             type="number"
                             name="monthtlyMortagePayment"
                             value={monthlyMortgagePayment}
                         />
-                        <span className="monthlyMortgagePayment-number">${monthlyMortgagePayment}</span>
                     </div>
                     <button type="submit">Calculate</button>
                     <button type="reset">Reset</button>
