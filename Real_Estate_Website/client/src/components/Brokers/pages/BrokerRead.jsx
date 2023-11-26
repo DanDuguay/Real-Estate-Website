@@ -4,7 +4,8 @@ import { getAllBrokers } from "../../../utils/api.js";
 import { Link } from "react-router-dom";
 import Layout from "../../Layout/Layout.jsx";
 import useBrokers from "../components/UseBrokers.jsx";
-//import "./BrokerRead.css";
+import Searching from "../../Searching/Searching.jsx";
+import BrokerCard from "../components/BrokerCard.jsx"; // Import your BrokerCard component
 
 const SeeBrokers = () => {
   const { data, isError, isLoading, refetch } = useBrokers();
@@ -20,7 +21,7 @@ const SeeBrokers = () => {
             <ul className="broker-group">
               {data.map((broker) => (
                 <li className="broker-item" key={broker.id}>
-                  {broker.name} - {broker.email}
+                  <BrokerCard broker={broker} />
                   <div className="broker-buttons">
                     <Link to={`/brokerupdate/${broker.id}`}>Update</Link>
                     <Link
