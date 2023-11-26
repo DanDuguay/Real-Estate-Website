@@ -793,4 +793,13 @@ a {
   }
 }
 
+.mortgage-calculator-container{
+    background-color: snow;
+    color: black;
+}
+
+.mortgage-calculator-label{
+    color: black;
+}
+
 
