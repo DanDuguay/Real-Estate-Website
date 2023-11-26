@@ -1,30 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import placeHolderBrokerImage from "./blank-profile-picture.png";
+import "./BrokerCard.css";
 const BrokerCard = ({ broker }) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="flexColStart r-card"
+      className="broker-card"
       onClick={() => navigate(`../broker/${broker.id}`)}
     >
       {/* TO DO: Add image for broker */}
-      <img src="" alt="broker" />
-      <span className="customTextClass" style={{ color: "black" }}>
-        Broker: {broker.name || "N/A"}
-      </span>
-      <span className="secondaryText" style={{ color: "black" }}>
-        Email: {broker.email}
-      </span>
-      <span className="secondaryText" style={{ color: "black" }}>
-        Role: {broker.role}
-      </span>
+      <img src={placeHolderBrokerImage} alt="broker" className="broker-image" />
+      <div className="broker-info">
+        <span className="broker-name">Name: {broker.name || "N/A"}</span>
+        <span className="broker-email">Email: {broker.email}</span>
+        <span className="broker-role">Role: {broker.role}</span>
+      </div>
 
       <div className="broker-details">
-        <span className="secondaryText" style={{ color: "black" }}>
-          Booked Visits:
-        </span>
+        <span className="details-label">Booked Visits:</span>
         <ul>
           {broker.bookedVisits && broker.bookedVisits.length > 0 ? (
             broker.bookedVisits.map((visit, index) => (
@@ -37,9 +32,7 @@ const BrokerCard = ({ broker }) => {
       </div>
 
       <div className="broker-properties">
-        <span className="secondaryText" style={{ color: "black" }}>
-          Properties Responsible:
-        </span>
+        <span className="details-label">Properties Responsible:</span>
         <ul>
           {broker.PropertiesResponsible &&
           broker.PropertiesResponsible.length > 0 ? (
