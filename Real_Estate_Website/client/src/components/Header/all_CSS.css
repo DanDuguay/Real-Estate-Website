@@ -821,8 +821,16 @@ a {
   }
 }
 
-/* Brokercard.css */
+.mortgage-calculator-container{
+    background-color: snow;
+    color: black;
+}
 
+.mortgage-calculator-label{
+    color: black;
+}
+
+/* Brokercard.css */
 .broker-card {
   width: 300px;
   border: 1px solid #ddd;
@@ -838,7 +846,6 @@ a {
 }
 
 .broker-info {
-  margin-bottom: 10px;
   margin-bottom: 10px;
 }
 

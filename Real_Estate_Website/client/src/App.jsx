@@ -26,6 +26,7 @@ import BrokerLogin from "./components/Login/BrokerLogin.jsx";
 import RequireAuth from "./components/Login/RequireAuth.jsx";
 import AdminLogin from "./components/Login/AdminLogin.jsx";
 import Unauthorized from "./components/Login/Unauthorized.jsx";
+import MortgageCalculator from "./components/MortgageCalculator/MortgageCalculator.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -51,7 +52,8 @@ function App() {
         >
           {/* Routes for users */}
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/brokerpage" element={<BrokerPage />} />
+          <Route path="/mortgagecalculator" element={<MortgageCalculator />} />
+          <Route path="/brokerpage" element ={<BrokerPage />} />
           <Route path="/brokerread" element={<SeeBrokers />} />
         </Route>
 

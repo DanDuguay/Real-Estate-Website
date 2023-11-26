@@ -45,10 +45,10 @@ const UserProfile = () => {
             <nav className="menu">
               <ul>
                 <li>
-                  <Link to="/">Profile-page</Link>
+                  <Link to="/mortgagecalculator">Mortgage Calculator</Link>
                 </li>
                 <li>
-                  <Link to="/propertyoffer">Contact info</Link>
+                  <Link to="/propertyoffer">Submit offer</Link>
                 </li>
                 <li>
                   <Link to="/">Appointments</Link>
