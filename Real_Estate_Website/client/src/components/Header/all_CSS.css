@@ -27,14 +27,15 @@ div {
 
   .body2 {
     background-image: url(luxury_house_two.jpeg);
-      padding: 5vw 5vw 12vw;
-      background-size: cover;
+    padding: 5vw 5vw 12vw; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
   
   body {
-    background-color: white;
+    background-color: rgba(225,225,225,0);
+
   }
 
   .propertiesBackground {
@@ -108,6 +109,7 @@ div {
         width: 90%;
       }
     }
+    
 
     /* broker css */
 
@@ -263,6 +265,8 @@ div {
       
       .h-wrapper {
         background: transparent; 
+      
+        
        
       }
       
@@ -542,6 +546,15 @@ textarea {
 
     /* Property Offer */
 
+    .property-offer-body{
+      background-image: url(inside_house_two.webp);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
     .property-offer-container {
         background-color: rgba(0,0,10,0.5);
         color: rgb(245,245,245);
@@ -551,6 +564,7 @@ textarea {
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         width: 60%;
         margin: 0px auto;
+        
       }
       
       .property-offer-container h1 {
@@ -608,7 +622,8 @@ textarea {
     justify-content: space-between; /* Pushes the content to the edges */
     align-items: center;
     padding: 0 20px; /* Add some padding for spacing on the sides */
-  }
+    
+  } 
   
   /* Style the menu links */
   
@@ -629,30 +644,43 @@ textarea {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: black;
+    color: white;
     text-align: center;
   }
   
   /* Style the card and content */
-  .card {
-    background-color: white;
+  .card-body {
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    
     padding: 20px;
     width: 60%;
     min-height: 50vh;
     margin: 20px auto 0;
     text-align: left;
-    color: black;
+    color: white;
+    
   }
+
+  #UserProfile{
+    background-image: url(inside_house_one.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 200px;
+  }
+
+  
   
   /* Adjust the profile image */
   .profile-image {
     max-width: 200px;
     border-radius: 50%;
-    align-self: flex-end;
+    align-self: flex-end; 
     display: flex;
-    margin: 0 auto; /* Center the image horizontally */
+    margin: 0 auto; /*Center the image horizontally */
   }
   
 /* index css */
@@ -763,7 +791,7 @@ a {
 }
 
 /* media queries */
-@media (min-width: 1536px) {
+ @media (min-width: 1536px) {
   .innerWidth {
     max-width: 1280px;
     margin: auto;
@@ -793,4 +821,65 @@ a {
   }
 }
 
+/* Brokercard.css */
 
+.broker-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: rgba(173, 201, 230, 0.357);
+  transition: box-shadow 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.broker-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box-shadow on hover */
+}
+
+.broker-info {
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.broker-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.broker-email,
+.broker-role,
+.details-label {
+  font-size: 14px;
+  color: white;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.broker-details,
+.broker-properties {
+  margin-top: 10px;
+}
+
+.image-container {
+  overflow: hidden; /* Hide overflowing content to ensure it doesn't affect layout */
+  height: 150px; /* Set the desired height for the image container */
+}
+
+.broker-image {
+  width: 100%; /* Make the image take up 100% of the width within its container */
+  height: auto; /* Allow the image to scale proportionally based on its width */
+  display: block; /* Remove any default inline styles that might affect the layout */
+  margin: 0 auto; /* Center the image horizontally within its container */
+}
+/*
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+*/
