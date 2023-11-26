@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import placeHolderBrokerImage from "./blank-profile-picture.png";
-import "./BrokerCard.css";
+/* import "./BrokerCard.css"; */
 
 const BrokerCard = ({ broker }) => {
   const navigate = useNavigate();
