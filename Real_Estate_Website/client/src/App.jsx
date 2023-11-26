@@ -5,19 +5,21 @@ import Layout from "./components/Layout/Layout";
 import Houses from "./components/pages/Houses";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
-import {ReactQueryDevtools} from 'react-query/devtools'
-import "react-toastify/dist/ReactToastify.css"
+import { ReactQueryDevtools } from "react-query/devtools";
+import "react-toastify/dist/ReactToastify.css";
 import UserLogin from "./components/Login/UserLogin.jsx";
 import UserRegister from "./components/Login/UserRegister.jsx";
 // import CreateProperty from "./components/PropertyCreate/CreateProperty";
 import Property from "./components/pages/Property";
 import UpdatePropertyForm from "./components/PropertyUpdate/UpdatePropertyForm";
 
-import BrokerPage from "./components/Brokers/BrokerPage.jsx";
-import BrokerCreate from "./components/Brokers/BrokerCreate.jsx";
-import BrokerUpdate from "./components/Brokers/BrokerUpdate.jsx";
-import BrokerDelete from "./components/Brokers/BrokerDelete.jsx";
-import SeeBrokers from "./components/Brokers/BrokerRead.jsx";
+import BrokerPage from "./components/Brokers/pages/BrokerPage.jsx";
+import BrokerCreate from "./components/Brokers/pages/BrokerCreate.jsx";
+import BrokerUpdate from "./components/Brokers/pages/BrokerUpdate.jsx";
+import BrokerDelete from "./components/Brokers/pages/BrokerDelete.jsx";
+import SeeBrokers from "./components/Brokers/pages/BrokerRead.jsx";
+import BrokerProfile from "./components/Brokers/pages/BrokerProfile.jsx";
+
 import Addproperty from "./components/AddProperty/Addproperty.jsx";
 import PropertyOffer from "./components/PropertyOffer/PropertyOffer.jsx";
 import BrokerLogin from "./components/Login/BrokerLogin.jsx";
@@ -31,7 +33,6 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-
       {/* Routes for all */}
       <Routes>
         <Route element={<Layout />} />
@@ -39,15 +40,16 @@ function App() {
           <Route index element={<Houses />} />
           <Route path=":propertyId" element={<Property />} />
         </Route>
-          <Route path="/" element={<Hero />} />
-          <Route path="/user/loginuser" element={<UserLogin />} />
-          <Route path="/user/loginbroker" element={<BrokerLogin />} />
-          <Route path="/user/loginadmin" element={<AdminLogin />} />
-          <Route path="/user/registeruser" element={<UserRegister />} />
-          <Route path="/unauthorized" element={<Unauthorized/>}/>
+        <Route path="/" element={<Hero />} />
+        <Route path="/user/loginuser" element={<UserLogin />} />
+        <Route path="/user/loginbroker" element={<BrokerLogin />} />
+        <Route path="/user/loginadmin" element={<AdminLogin />} />
+        <Route path="/user/registeruser" element={<UserRegister />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
 
-
-        <Route element={<RequireAuth allowedRoles={["User","Broker","Admin"]}/>}>
+        <Route
+          element={<RequireAuth allowedRoles={["User", "Broker", "Admin"]} />}
+        >
           {/* Routes for users */}
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/mortgagecalculator" element={<MortgageCalculator />} />
@@ -55,20 +57,20 @@ function App() {
           <Route path="/brokerread" element={<SeeBrokers />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={["Broker","Admin"]}/>}>
+        <Route element={<RequireAuth allowedRoles={["Broker", "Admin"]} />}>
           {/* Routes for brokers */}
           <Route path="/propertyOffer" element={<PropertyOffer />} />
           <Route path="/property/update/:id" element={<UpdatePropertyForm />} />
           <Route path="/property/create" element={<Addproperty />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={["Admin"]}/>}>
+        <Route element={<RequireAuth allowedRoles={["Admin"]} />}>
           {/*Routes for Admin only */}
           <Route path="/brokercreate" element={<BrokerCreate />} />
           <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
           <Route path="/brokerdelete/:brokerId" element={<BrokerDelete />} />
+          <Route path="/broker/:brokerId" element={<BrokerProfile />} />
         </Route>
-
       </Routes>
       <ToastContainer />
       <ReactQueryDevtools initialIsOpen={false} />

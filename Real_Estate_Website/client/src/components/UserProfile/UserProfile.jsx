@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 //import "./UserProfile.css"; // Import the CSS file directly
 import profileImage from "./pic.png";
 import { Link } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
@@ -37,10 +38,10 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className="UserProfile">
-      <section className="wrap">
-        <div className="container">
-          <div className="navb">
+  
+        <div id="UserProfile">
+
+          <div className="navb" >
             <nav className="menu">
               <ul>
                 <li>
@@ -73,8 +74,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+        
   );
 };
 

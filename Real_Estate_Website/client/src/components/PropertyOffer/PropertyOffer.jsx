@@ -46,6 +46,7 @@ const PropertyOffer = () => {
     }
   };
   return (
+    <div className="property-offer-body">
     <div className="property-offer-container">
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit} className="property-offer-form">
@@ -146,6 +147,7 @@ const PropertyOffer = () => {
         <button type="submit">Submit Offer</button>
       </form>
     </div>
+  </div>
   );
 };
 
