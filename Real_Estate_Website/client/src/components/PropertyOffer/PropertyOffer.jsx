@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import "./PropertyOffer.css";
 import { submitPropertyOffer } from "../../utils/api";
 import "../Header/all_CSS.css";
+import Layout from "../Layout/Layout.jsx";
 
 const PropertyOffer = () => {
   const [offer, setOffer] = useState({
@@ -46,6 +47,8 @@ const PropertyOffer = () => {
     }
   };
   return (
+    <>
+    <Layout/>
     <div className="property-offer-body">
     <div className="property-offer-container">
       <h1>Contact Us</h1>
@@ -148,6 +151,7 @@ const PropertyOffer = () => {
       </form>
     </div>
   </div>
+  </>
   );
 };
 
