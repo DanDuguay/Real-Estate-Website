@@ -18,6 +18,8 @@ import BrokerCreate from "./components/Brokers/pages/BrokerCreate.jsx";
 import BrokerUpdate from "./components/Brokers/pages/BrokerUpdate.jsx";
 import BrokerDelete from "./components/Brokers/pages/BrokerDelete.jsx";
 import SeeBrokers from "./components/Brokers/pages/BrokerRead.jsx";
+import BrokerProfile from "./components/Brokers/pages/BrokerProfile.jsx";
+
 import Addproperty from "./components/AddProperty/Addproperty.jsx";
 import PropertyOffer from "./components/PropertyOffer/PropertyOffer.jsx";
 import BrokerLogin from "./components/Login/BrokerLogin.jsx";
@@ -65,6 +67,7 @@ function App() {
           <Route path="/brokercreate" element={<BrokerCreate />} />
           <Route path="/brokerupdate/:brokerId" element={<BrokerUpdate />} />
           <Route path="/brokerdelete/:brokerId" element={<BrokerDelete />} />
+          <Route path="/broker/:brokerId" element={<BrokerProfile />} />
         </Route>
       </Routes>
       <ToastContainer />
