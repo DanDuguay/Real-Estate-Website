@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
+import "../Header/all_CSS.css"
 
 //import "./Property.css";
 
@@ -67,9 +68,7 @@ const Property = () => {
 
                   <div className="flexStart head" style={{ marginTop: "-60px"}} >
                       <span className="primaryText">{data?.title}</span>
-                      <span style={{ fontSize: "1.5rem", paddingLeft: "100px", fontWeight: "bold", color: "#3498db"}}>
-  Price: $ {data?.price}
-</span>
+                      <span className="property-price-selected">Price: $ {data?.price}</span>
                   </div>
                   {/* facilities */}
                   <div className="flexStart facilities">

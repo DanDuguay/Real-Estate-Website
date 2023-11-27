@@ -880,7 +880,9 @@ a {
 
 .image-container {
   overflow: hidden; /* Hide overflowing content to ensure it doesn't affect layout */
-  height: 150px; /* Set the desired height for the image container */
+  height: 450px; /* Set the desired height for the image container */
+  width: 550px;
+  margin-top: 1px;
 }
 
 .broker-image {
@@ -889,6 +891,14 @@ a {
   display: block; /* Remove any default inline styles that might affect the layout */
   margin: 0 auto; /* Center the image horizontally within its container */
 }
+
+.property-price-selected{ 
+  font-size: 1.5rem;
+  padding-left: 100px;
+  font-Weight: bold;
+  color: #3498db;
+}
+
 /*
 ul {
   list-style: none;
