@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
+import useAuth from "../../hooks/useAuth.jsx"
 
 //import "./Property.css";
 
@@ -20,6 +21,7 @@ import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
 
 
 const Property = () => {
+    const {auth} = useAuth();
     
     const {pathname} = useLocation()
     const id = pathname.split("/").slice(-1)[0]
@@ -82,12 +84,15 @@ const Property = () => {
               </div >
               <div style={{ width: "100%"}}>
 
-                  <button onClick={()=> deleteProperty(id)}>Delete property</button>
+                  {auth?.role?.find(role => ["Admin","Broker"].includes(role))?
+                      <button onClick={()=> deleteProperty(id)}>Delete property</button> : null}
+                  {auth?.role?.find(role => ["Admin","Broker"].includes(role))?
                   <Link to={`/property/update/${id}`}>
-                      <button>Update Property</button>
-                  </Link>
+                          <button>Update Property</button>
+                      </Link> : null}
 
               </div>
+              {auth?.role?.find(role => ["Admin","Broker","User"].includes(role))?
               <div >
                   <button
                       className="button"
@@ -104,7 +109,7 @@ const Property = () => {
                       propertyId={id}
                       email={data.brokerEmail}
                   />
-              </div>
+              </div> : null}
           </div>
       </>
 
