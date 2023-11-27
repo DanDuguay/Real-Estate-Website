@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import profileImage from "./pic.png";
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import useAuth from "../../hooks/useAuth.jsx"
 
 const UserProfile = () => {
+  const {auth} = useAuth();
   const [user, setUser] = useState({});
   const [appointments, setAppointments] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -62,10 +64,12 @@ const UserProfile = () => {
           <div className="card">
             <div className="card-body">
               <div className="card-title">Profile</div>
-              <div className="card-text">Name: </div>
+              <div className="card-text">Name: <h2>{auth.name}</h2><br/> </div>
+              {/* hidden until needed
               <div className="card-text">Email:</div>
               <div className="card-text">Phone: </div>
               <div className="card-text">Address: </div>
+              */}
               <img
                 src={profileImage}
                 alt="User Profile"
