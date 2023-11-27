@@ -10,6 +10,11 @@ import useAuth from "../../hooks/useAuth.jsx"
 
 const Header = () => {
   const {auth} = useAuth();
+  const {setAuth} = useAuth();
+
+  const handleOnClick = async (e) =>{
+    setAuth();
+  }
 
   return (
     <section className="h-wrapper">
@@ -37,6 +42,9 @@ const Header = () => {
               {auth?.role?.find(role => ["Admin","User"].includes(role))? <Link to="/userprofile">User Profile</Link> : null}
             </li>
             <li>
+              {auth?.role?.find(role => ["Admin", "Broker", "User"].includes(role))
+                  ? <button className="dropbtn button" onClick={handleOnClick}>Log Out</button>
+              :
               <div className="dropdown">
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
@@ -45,6 +53,7 @@ const Header = () => {
                   <Link to="/user/loginadmin">As Administrator</Link>
                 </div>
               </div>
+              }
             </li>
           </ul>
         </nav>
