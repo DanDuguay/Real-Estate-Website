@@ -29,7 +29,8 @@ const MortgageCalculator = () => {
     return (
         <>
             <Layout/>
-            <div className="mortgage-calculator-container">
+            <div className="mortgage-calculator-body">
+            <div className="mortgage-calculator-container ">
                 <h1>Mortgage Calculator</h1>
                 <form onSubmit={handleSubmit} onReset={handleReset} className="mortgage-calculator-form">
                     <div className="form-group">
@@ -84,6 +85,7 @@ const MortgageCalculator = () => {
                     <button type="submit">Calculate</button>
                     <button type="reset">Reset</button>
                 </form>
+            </div>
             </div>
         </>
     )

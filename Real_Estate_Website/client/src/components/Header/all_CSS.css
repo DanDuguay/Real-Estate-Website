@@ -822,12 +822,27 @@ a {
 }
 
 .mortgage-calculator-container{
-    background-color: snow;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 50%;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
 }
 
 .mortgage-calculator-label{
-    color: black;
+    color: white;
+}
+
+.mortgage-calculator-body{
+  background-image: url(luxury_house_seven.jpg);
+    padding: 5vw 5vw 12vw; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Brokercard.css */
