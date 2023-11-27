@@ -729,6 +729,11 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: black;
+}
+
+.flexStart facility{
+  color: black;
 }
 
 .flexEnd {
