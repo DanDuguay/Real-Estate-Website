@@ -80,7 +80,8 @@ const UserProfile = () => {
             className="profile-image"
           />
         </div>
+      </div>
+    </div>
   );
 };
-
 export default UserProfile;
