@@ -149,7 +149,8 @@ describe("Delete Broker", () => {
   it("should be able to delete the broker that was created in the previous test", () => {
     signInAsAdmin()
     cy.contains("li","Brokers").click()
-    cy.contains("a","View All Brokers").click()
-    cy.contains("span","CypressBroker").contains("a", "Delete")
+    cy.get("#viewAllBrokers").click()
+    cy.contains("span", "CypressBroker").parent().parent().parent().contains("a","Delete").click()
+    cy.contains("button", "Yes, Delete Broker").click()
   })
 });
