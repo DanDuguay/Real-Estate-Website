@@ -40,7 +40,6 @@ const UserProfile = () => {
   }, []);
 
   return (
-  
         <div id="UserProfile">
 
           <div className="navb" >
@@ -57,6 +56,9 @@ const UserProfile = () => {
                 </li>
                 <li>
                   <Link to="/">Favourite Properties</Link>
+                </li>
+                <li>
+                  <Link to="/offerManagement">Manage Offers</Link>
                 </li>
               </ul>
             </nav>
@@ -78,7 +80,8 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        
+      </div>
+    </div>
   );
 };
 
