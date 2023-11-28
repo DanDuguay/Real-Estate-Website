@@ -52,6 +52,8 @@ function UpdatePropertyForm() {
   };
 
   return (
+  <div className='update-property-body'>
+    <div className='user-login-section'>
     <div>
        
       <h1>Update Property</h1>
@@ -136,6 +138,8 @@ function UpdatePropertyForm() {
         </button>
       </form>
     </div>
+    </div>
+  </div>
   );
 }
 

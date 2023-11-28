@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getAllBrokers } from "../../../utils/api.js";
 import { Link } from "react-router-dom";
@@ -7,21 +7,43 @@ import useBrokers from "../components/UseBrokers.jsx";
 import Searching from "../../Searching/Searching.jsx";
 import BrokerCard from "../components/BrokerCard.jsx"; // Import your BrokerCard component
 import useAuth from "../../../hooks/useAuth.jsx";
+import BrokerSearch from "../components/BrokerSearch.jsx";
+
 
 const SeeBrokers = () => {
     const { auth } = useAuth();
   const { data, isError, isLoading, refetch } = useBrokers();
+  const [searchFilter, setSearchFilter] = useState("");
+
+  // Filter brokers based on the search input
+  const filteredBrokers = data
+    ? data.filter((broker) => {
+        const match =
+          (broker.name &&
+            broker.name.toLowerCase().includes(searchFilter.toLowerCase())) ||
+          (broker.email &&
+            broker.email.toLowerCase().includes(searchFilter.toLowerCase()));
+
+        console.log(
+          `Broker: ${broker.title}, ${broker.city}, ${broker.country}, Match: ${match}`
+        );
+
+        return match;
+      })
+    : [];
+
   return (
     <>
       <Layout />
       <div className="body2">
         <div className="broker-container">
           <h1>Brokers List</h1>
+          <BrokerSearch filter={searchFilter} setFilter={setSearchFilter} />
           {isLoading && <p>Loading brokers...</p>}
           {isError && <p>Error loading brokers data</p>}
-          {data && (
+          {filteredBrokers.length > 0 ? (
             <ul className="broker-group">
-              {data.map((broker) => (
+              {filteredBrokers.map((broker) => (
                 <li className="broker-item" key={broker.id}>
                   <BrokerCard broker={broker} />
                     {auth?.role?.find(role => ["Admin"].includes(role)) ? <div className="broker-buttons">
@@ -36,6 +58,8 @@ const SeeBrokers = () => {
                 </li>
               ))}
             </ul>
+          ) : (
+            <p>No brokers found.</p>
           )}
           <button onClick={refetch}>Refresh</button>
         </div>

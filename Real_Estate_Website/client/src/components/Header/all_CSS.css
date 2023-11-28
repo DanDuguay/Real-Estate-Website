@@ -930,3 +930,12 @@ li {
   margin-bottom: 5px;
 }
 */
+
+
+.update-property-body {
+  background-image: url(inside_house_six.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5%;
+}
