@@ -43,7 +43,8 @@ const UserLogin = () => {
             const response = await axios.post("http://localhost:4000/api/user/getuser", data, {
             });
             const response_role = response.data.user.role;
-            setAuth({name: user, password: pwd, role: [response_role], id: response.data.user.id})
+            const response_id = response.data.user.id;
+            setAuth({name: user, password: pwd, role: [response_role], id: response_id})
             console.log(response.data.user.id);
             setUser('');
             setPwd('');
