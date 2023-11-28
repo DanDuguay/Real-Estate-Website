@@ -3,9 +3,14 @@ import BrokerOfferCard from "../components/BrokerOfferCard.jsx";
 import PropertyCard from "../../PropertyCard/PropertyCard.jsx";
 import { useParams } from "react-router-dom";
 import { getBrokerOffers, getProperty } from "../../../utils/api.js";
+import useAuth from "../../../hooks/useAuth.jsx";
 
 const BrokerOfferManagement = () => {
-  const { brokerId } = useParams();
+  const { auth } = useAuth();
+  console.log("auth:", auth);
+  const brokerId = auth.id;
+  console.log("BrokerOfferManagement broker Id:", brokerId);
+
   const [brokerOffers, setBrokerOffers] = useState([]);
 
   useEffect(() => {
