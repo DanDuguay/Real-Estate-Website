@@ -38,43 +38,43 @@ const UserProfile = () => {
   }, []);
 
   return (
-  
-        <div id="UserProfile">
-
-          <div className="navb" >
-            <nav className="menu">
-              <ul>
-                <li>
-                  <Link to="/mortgagecalculator">Mortgage Calculator</Link>
-                </li>
-                <li>
-                  <Link to="/propertyoffer">Submit offer</Link>
-                </li>
-                <li>
-                  <Link to="/">Appointments</Link>
-                </li>
-                <li>
-                  <Link to="/">Favourite Properties</Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div className="card">
-            <div className="card-body">
-              <div className="card-title">Profile</div>
-              <div className="card-text">Name: </div>
-              <div className="card-text">Email:</div>
-              <div className="card-text">Phone: </div>
-              <div className="card-text">Address: </div>
-              <img
-                src={profileImage}
-                alt="User Profile"
-                className="profile-image"
-              />
-            </div>
-          </div>
+    <div id="UserProfile">
+      <div className="navb">
+        <nav className="menu">
+          <ul>
+            <li>
+              <Link to="/mortgagecalculator">Mortgage Calculator</Link>
+            </li>
+            <li>
+              <Link to="/propertyoffer">Submit offer</Link>
+            </li>
+            <li>
+              <Link to="/">Appointments</Link>
+            </li>
+            <li>
+              <Link to="/">Favourite Properties</Link>
+            </li>
+            <li>
+              <Link to="/offerManagement">Manage Offers</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className="card">
+        <div className="card-body">
+          <div className="card-title">Profile</div>
+          <div className="card-text">Name: </div>
+          <div className="card-text">Email:</div>
+          <div className="card-text">Phone: </div>
+          <div className="card-text">Address: </div>
+          <img
+            src={profileImage}
+            alt="User Profile"
+            className="profile-image"
+          />
         </div>
-        
+      </div>
+    </div>
   );
 };
 
