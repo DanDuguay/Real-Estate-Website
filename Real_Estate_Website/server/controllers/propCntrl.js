@@ -62,7 +62,7 @@ export const getProperty = asynHandler(async (req, res) => {
     });
     res.send(property);
   } catch (error) {
-    throw new Error(err.message);
+    throw new Error(error.message);
   }
 });
 
