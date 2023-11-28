@@ -85,7 +85,7 @@ const Property = () => {
               <div style={{ width: "100%"}}>
 
                   {auth?.role?.find(role => ["Admin","Broker"].includes(role))?
-                      <button onClick={()=> deleteProperty(id)}>Delete property</button> : null}
+                      <button id="deletebutton" onClick={()=> deleteProperty(id)}>Delete property</button> : null}
                   {auth?.role?.find(role => ["Admin","Broker"].includes(role))?
                   <Link to={`/property/update/${id}`}>
                           <button>Update Property</button>

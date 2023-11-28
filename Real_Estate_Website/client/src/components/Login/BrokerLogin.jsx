@@ -42,7 +42,8 @@ const BrokerLogin = () => {
             const response = await axios.post("http://localhost:4000/api/broker/getbroker", data, {
             });
             const response_role = response.data.broker.role;
-            setAuth({name: broker, password: pwd, role: [response_role]})
+            setAuth({name: broker, password: pwd, role: [response_role], id: response.data.broker.id})
+            console.log(response.data.broker.id);
             setBroker('');
             setPwd('');
             navigate(from, { replace: true});

@@ -20,7 +20,7 @@ const BrokerPage = () => {
                 Add Broker
               </Link> : null}
               <br />
-              <Link to="/brokerread" className="broker-page-link">
+              <Link to="/brokerread" id="viewAllBrokers" className="broker-page-link">
                 View All Brokers
               </Link>
             </p>
