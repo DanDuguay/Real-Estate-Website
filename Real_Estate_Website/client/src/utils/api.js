@@ -10,7 +10,7 @@ export const getAllProperties = async () => {
     const response = await api.get("/property/displayProprties", {
       timeout: 10 * 1000,
     });
-    
+
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
@@ -114,7 +114,6 @@ export const getAllBrokers = async () => {
   }
 };
 
-
 export const getBroker = async (id) => {
   try {
     const response = await api.get(`/broker/${id}`, {
@@ -188,7 +187,53 @@ export const createBroker = async (data) => {
     throw error;
   }
 };
+export const getBrokerOffers = async (id) => {
+  try {
+    console.log(`getbrokerOffers id: ${id}`);
+    const response = await api.get(`/offer/propertyOffers/${id}`, {
+      timeout: 10 * 1000,
+    });
 
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong");
+    throw error;
+  }
+};
+export const acceptBrokerOffer = async (brokerId, offerId) => {
+  try {
+    const response = await api.get(`/offer/accept/${brokerId}/${offerId}`, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong");
+    throw error;
+  }
+};
+
+export const declineBrokerOffer = async (brokerId, offerId) => {
+  try {
+    const response = await api.get(`/offer/decline/${brokerId}/${offerId}`, {
+      timeout: 10 * 1000,
+    });
+
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong");
+    throw error;
+  }
+};
 export const submitPropertyOffer = async (offerData) => {
   try {
     const response = await api.post("/offer/submitOffer", offerData, {
@@ -204,27 +249,28 @@ export const submitPropertyOffer = async (offerData) => {
   } catch (error) {
     toast.error("Something went wrong while submitting the property offer");
     throw error;
-  }};
-
+  }
+};
 export const createUser = async (data) => {
-    try {
-        const response = await api.post('/user/registeruser', data, {
-            timeout: 10 * 1000,
-        });
+  try {
+    const response = await api.post("/user/registeruser", data, {
+      timeout: 10 * 1000,
+    });
 
-        if (response.status === 400 || response.status === 500) {
-            throw response.data;
-        }
-      window.location.href = "/user/loginuser";
-        return response.data;
-    }   catch (error) {
-        toast.error("Something went wrong while creating a user");
-        throw error;
-    }};
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    window.location.href = "/user/loginuser";
+    return response.data;
+  } catch (error) {
+    toast.error("Something went wrong while creating a user");
+    throw error;
+  }
+};
 
 export const userExists = async (data) => {
   try {
-    const response = await api.post('/user/checkuser', data, {
+    const response = await api.post("/user/checkuser", data, {
       timeout: 10 * 1000,
     });
 
@@ -235,13 +281,18 @@ export const userExists = async (data) => {
   } catch (error) {
     toast.error("Something went wrong while fetching a user");
     throw error;
-  }};
+  }
+};
 
 export const getUser = async (data) => {
   try {
-    const response = await api.post('/user/getuser', {data}, {
-      timeout: 10 * 1000,
-    });
+    const response = await api.post(
+      "/user/getuser",
+      { data },
+      {
+        timeout: 10 * 1000,
+      }
+    );
 
     if (response.status === 400 || response.status === 500) {
       throw response.data;
@@ -250,13 +301,18 @@ export const getUser = async (data) => {
   } catch (error) {
     toast.error("Something went wrong fetching a user");
     throw error;
-  }};
+  }
+};
 
 export const getBrokerCredentials = async (data) => {
   try {
-    const response = await api.post('/broker/getbroker', {data}, {
-      timeout: 10 * 1000,
-    });
+    const response = await api.post(
+      "/broker/getbroker",
+      { data },
+      {
+        timeout: 10 * 1000,
+      }
+    );
 
     if (response.status === 400 || response.status === 500) {
       throw response.data;
@@ -270,21 +326,25 @@ export const getBrokerCredentials = async (data) => {
 
 export const getAdmin = async (data) => {
   try {
-    const response = await api.post('/admin/getadmin', {data}, {
-      timeout: 10 * 1000,
-    });
+    const response = await api.post(
+      "/admin/getadmin",
+      { data },
+      {
+        timeout: 10 * 1000,
+      }
+    );
 
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
     return response.data;
   } catch (error) {
-    toast.error("Something went wrong fetching an admin")
+    toast.error("Something went wrong fetching an admin");
     throw error;
   }
 };
 
-export const RequestVisit = async(date, propertyId, email) =>{
+export const RequestVisit = async (date, propertyId, email) => {
   try {
     await api.post(
       `/broker/requestviste/${propertyId}`,
@@ -298,6 +358,6 @@ export const RequestVisit = async(date, propertyId, email) =>{
       }
     );
   } catch (error) {
-   
     throw error;
-  }};
+  }
+};
