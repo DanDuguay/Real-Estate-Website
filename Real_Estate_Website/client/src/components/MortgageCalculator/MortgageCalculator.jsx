@@ -38,6 +38,7 @@ const MortgageCalculator = () => {
                         <span className="homePrice-number"> ${homePrice}</span>
                         </label>
                         <input
+                            id="homePrice"
                             required
                             type="number"
                             name="homePrice"
@@ -50,6 +51,7 @@ const MortgageCalculator = () => {
                         <span className="downPayment-number"> ${downPayment}</span>
                         </label>
                         <input
+                            id="downPayment"
                             type="number"
                             name="downPayment"
                             onChange={(e) => setDownPayment(Number(e.target.value))}/>
@@ -61,6 +63,7 @@ const MortgageCalculator = () => {
                         <span className="monthlyInterestRate-number"> {((monthlyInterestRate*100)*12).toFixed(2)}%</span>
                         </label>
                         <input
+                            id="monthlyInterestRate"
                             required
                             type="number"
                             name="monthlyInterestRate"
@@ -75,6 +78,7 @@ const MortgageCalculator = () => {
                         <span className="homePrice-number"> {loanTermInMonths/12} years</span>
                         </label>
                         <input
+                            id="loanTermInYears"
                             required
                             type="number"
                             name="loanTermInYears"
