@@ -69,4 +69,7 @@ model PropertyOffer {
   budget          String 
   message         String
   createdAt       DateTime @default(now())
+  broker          Broker     @relation(fields: [email], references: [email])
+
 }
+
