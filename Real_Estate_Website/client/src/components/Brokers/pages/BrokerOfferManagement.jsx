@@ -40,8 +40,9 @@ const BrokerOfferManagement = () => {
   }, [brokerOffers]);
 
   return (
-    <div>
+    <div style={{ color: "black" }}>
       <h2>Broker Offer Management</h2>
+      <br></br>
       <div>
         {brokerOffers.length > 0 && brokerOffers[0] != "" ? (
           brokerOffers.map((offer) => (
