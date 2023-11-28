@@ -187,22 +187,27 @@ export const createBroker = async (data) => {
     throw error;
   }
 };
-export const getBrokerOffers = async (id) => {
+export const getBrokerOffers = async (brokerId) => {
   try {
-    console.log(`getbrokerOffers id: ${id}`);
-    const response = await api.get(`/offer/propertyOffers/${id}`, {
+    console.log(`getBrokerOffers id: ${brokerId}`);
+    const response = await api.get(`/offer/propertyOffers/${brokerId}`, {
       timeout: 10 * 1000,
     });
 
     if (response.status === 400 || response.status === 500) {
       throw response.data;
     }
-    return response.data;
+
+    // Ensure the response data is an array, or convert it to an array
+    const data = Array.isArray(response.data) ? response.data : [response.data];
+
+    return data;
   } catch (error) {
     toast.error("Something went wrong");
     throw error;
   }
 };
+
 export const acceptBrokerOffer = async (brokerId, offerId) => {
   try {
     const response = await api.get(`/offer/accept/${brokerId}/${offerId}`, {
