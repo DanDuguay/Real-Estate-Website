@@ -19,7 +19,7 @@ import BrokerUpdate from "./components/Brokers/pages/BrokerUpdate.jsx";
 import BrokerDelete from "./components/Brokers/pages/BrokerDelete.jsx";
 import SeeBrokers from "./components/Brokers/pages/BrokerRead.jsx";
 import BrokerProfile from "./components/Brokers/pages/BrokerProfile.jsx";
-
+import BrokerOfferManagement from "./components/Brokers/pages/BrokerOfferManagement.jsx";
 import Addproperty from "./components/AddProperty/Addproperty.jsx";
 import PropertyOffer from "./components/PropertyOffer/PropertyOffer.jsx";
 import BrokerLogin from "./components/Login/BrokerLogin.jsx";
@@ -53,7 +53,8 @@ function App() {
           {/* Routes for users */}
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/mortgagecalculator" element={<MortgageCalculator />} />
-          <Route path="/brokerpage" element ={<BrokerPage />} />
+          <Route path="/offerManagement" element={<BrokerOfferManagement />} />
+          <Route path="/brokerpage" element={<BrokerPage />} />
           <Route path="/brokerread" element={<SeeBrokers />} />
         </Route>
 
