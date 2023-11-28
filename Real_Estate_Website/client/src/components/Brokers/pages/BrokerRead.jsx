@@ -6,8 +6,10 @@ import Layout from "../../Layout/Layout.jsx";
 import useBrokers from "../components/UseBrokers.jsx";
 import Searching from "../../Searching/Searching.jsx";
 import BrokerCard from "../components/BrokerCard.jsx"; // Import your BrokerCard component
+import useAuth from "../../../hooks/useAuth.jsx";
 
 const SeeBrokers = () => {
+    const { auth } = useAuth();
   const { data, isError, isLoading, refetch } = useBrokers();
   return (
     <>
@@ -22,7 +24,7 @@ const SeeBrokers = () => {
               {data.map((broker) => (
                 <li className="broker-item" key={broker.id}>
                   <BrokerCard broker={broker} />
-                  <div className="broker-buttons">
+                    {auth?.role?.find(role => ["Admin"].includes(role)) ? <div className="broker-buttons">
                     <Link to={`/brokerupdate/${broker.id}`}>Update</Link>
                     <Link
                       to={`/brokerDelete/${broker.id}`}
@@ -30,7 +32,7 @@ const SeeBrokers = () => {
                     >
                       Delete
                     </Link>
-                  </div>
+                  </div> : null }
                 </li>
               ))}
             </ul>

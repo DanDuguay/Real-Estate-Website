@@ -163,10 +163,13 @@ div {
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 5vw;
     padding-bottom: 5vw;
+    padding-left: 5vw;
     border-radius: 5px;
     color: #fff;
     text-align: center;
     text-shadow: 0 0 5px black;
+    margin: auto;
+    max-width: 75%;
   }
   
   /* Additional style for the 'No, Cancel' button */
@@ -729,6 +732,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+    flex-direction:column;
 }
 
 .flexStart {
