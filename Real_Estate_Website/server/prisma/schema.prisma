@@ -27,6 +27,7 @@ model Broker {
     role String
     bookedVisits Json[]
     PropertiesResponsible Properties[] @relation("Responsible")
+    propertyOffers PropertyOffer[]
 }
 
 model Admin {
@@ -57,6 +58,7 @@ model Properties{
 
 model PropertyOffer {
   id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId      String
   brokerName      String
   licenseNumber   String
   agency          String
