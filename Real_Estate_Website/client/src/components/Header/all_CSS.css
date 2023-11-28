@@ -54,6 +54,7 @@ div {
     margin-bottom: 20px;
     margin-top: 20px;
     text-decoration: underline;
+      text-shadow: 0 0 5px black;
   }
   
 
@@ -340,6 +341,7 @@ div {
     h2 {
         font-family: "Poppins", sans-serif;
         color: var(--lightBlue);
+        text-shadow: 0 0 5px black;
     
     }
 
@@ -622,6 +624,7 @@ textarea {
     justify-content: space-between; /* Pushes the content to the edges */
     align-items: center;
     padding: 0 20px; /* Add some padding for spacing on the sides */
+    text-shadow: 0 0 4px black;
     
   } 
   
@@ -646,6 +649,7 @@ textarea {
     margin-bottom: 10px;
     color: white;
     text-align: center;
+    text-shadow: 0 0 5px black;
   }
   
   /* Style the card and content */
@@ -731,6 +735,11 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: black;
+}
+
+.flexStart facility{
+  color: black;
 }
 
 .flexEnd {
@@ -888,7 +897,9 @@ a {
 
 .image-container {
   overflow: hidden; /* Hide overflowing content to ensure it doesn't affect layout */
-  height: 150px; /* Set the desired height for the image container */
+  height: 450px; /* Set the desired height for the image container */
+  width: 550px;
+  margin-top: 1px;
 }
 
 .broker-image {
@@ -897,6 +908,14 @@ a {
   display: block; /* Remove any default inline styles that might affect the layout */
   margin: 0 auto; /* Center the image horizontally within its container */
 }
+
+.property-price-selected{ 
+  font-size: 1.5rem;
+  padding-left: 100px;
+  font-Weight: bold;
+  color: #3498db;
+}
+
 /*
 ul {
   list-style: none;
