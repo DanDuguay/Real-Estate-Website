@@ -39,7 +39,7 @@ const Header = () => {
             </li>
             
             <li>
-              {auth?.role?.find(role => ["Admin","User"].includes(role))? <Link to="/userprofile">User Profile</Link> : null}
+              {auth?.role?.find(role => ["Admin","Broker","User"].includes(role))? <Link to="/userprofile">User Profile</Link> : null}
             </li>
             <li>
               {auth?.role?.find(role => ["Admin", "Broker", "User"].includes(role))
@@ -48,9 +48,9 @@ const Header = () => {
               <div className="dropdown">
                 <button className="dropbtn button">Login</button>
                 <div className="dropdown-content">
-                  <Link to="/user/loginuser">As User</Link>
-                  <Link to="/user/loginbroker">As Broker</Link>
-                  <Link to="/user/loginadmin">As Administrator</Link>
+                  <Link id="userloginlink" to="/user/loginuser">As User</Link>
+                  <Link id="brokerloginlink" to="/user/loginbroker">As Broker</Link>
+                  <Link id="adminloginlink" to="/user/loginadmin">As Administrator</Link>
                 </div>
               </div>
               }

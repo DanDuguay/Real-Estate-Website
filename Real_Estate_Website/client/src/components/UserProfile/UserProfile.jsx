@@ -18,7 +18,7 @@ const UserProfile = () => {
       const data = await response.json();
       setUser(data);
     };
-    fetchUser();
+    //fetchUser();
 
     // Fetch user's appointments from API and set it to the state
     const fetchAppointments = async () => {
@@ -32,15 +32,14 @@ const UserProfile = () => {
 
     // Fetch user's favorite properties from API and set it to the state
     const fetchFavorites = async () => {
-      const response = await fetch("https://api.example.com/user/1/favorites");
-      const data = await response.json();
-      setFavorites(data);
+      //const response = await fetch("https://api.example.com/user/1/favorites");
+      //const data = await response.json();
+      //setFavorites(data);
     };
     //fetchFavorites();
   }, []);
 
   return (
-  
         <div id="UserProfile">
 
           <div className="navb" >
@@ -57,6 +56,9 @@ const UserProfile = () => {
                 </li>
                 <li>
                   <Link to="/">Favourite Properties</Link>
+                </li>
+                <li>
+                  <Link to="/offerManagement">Manage Offers</Link>
                 </li>
               </ul>
             </nav>
@@ -78,7 +80,6 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        
   );
 };
 
