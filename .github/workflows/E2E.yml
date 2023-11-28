@@ -33,7 +33,14 @@ jobs:
           echo DATABASE_URL=${{secrets.DATABASEURL}}  >> .env
           cat .env
         working-directory: ./Real_Estate_Website/server
-        
+
+      
+      - run: yarn prisma format
+        working-directory: ./Real_Estate_Website/server
+
+      - run: yarn prisma generate
+        working-directory: ./Real_Estate_Website/server
+
       - run: yarn run dev &
         working-directory: ./Real_Estate_Website/client
 
