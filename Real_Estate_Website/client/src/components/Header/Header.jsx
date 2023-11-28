@@ -39,7 +39,7 @@ const Header = () => {
             </li>
             
             <li>
-              {auth?.role?.find(role => ["Admin","User"].includes(role))? <Link to="/userprofile">User Profile</Link> : null}
+              {auth?.role?.find(role => ["Admin","Broker","User"].includes(role))? <Link to="/userprofile">User Profile</Link> : null}
             </li>
             <li>
               {auth?.role?.find(role => ["Admin", "Broker", "User"].includes(role))
