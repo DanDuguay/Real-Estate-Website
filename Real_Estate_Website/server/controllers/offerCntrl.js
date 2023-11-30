@@ -45,6 +45,9 @@ export const getBrokerOffers = asyncHandler(async (req, res) => {
   console.log(`getBrokerOffers ID: ${id}`);
   try {
     const broker = await prisma.broker.findUnique({ where: { id: id } });
+    // console.log(`getBrokerOffers array: ${broker}`);
+    console.log("Broker Object:", JSON.stringify(broker, null, 2));
+
     const brokerOffers = broker.propertyOffers;
     res.send(brokerOffers);
   } catch (error) {

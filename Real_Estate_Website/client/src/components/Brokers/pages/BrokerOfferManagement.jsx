@@ -14,12 +14,15 @@ const BrokerOfferManagement = () => {
   useEffect(() => {
     const fetchBrokerOffers = async () => {
       try {
-        const offers = await getBrokerOffers(brokerId);
-        console.log("Offers:", offers);
+        const offerIds = await getBrokerOffers(brokerId);
+        console.log("Offers Ids:", offerIds);
         const offersWithProperties = await Promise.all(
-          offers.map(async (offer) => {
-            if (offer.propertyId) {
-              const property = await getProperty(offer.propertyId);
+          offerIds.map(async (offer) => {
+            if (offer) {
+              const property = await getProperty(offer.id);
+              offer.brokerName = "Omar Ziad";
+              offer.licenseNumber = 69420;
+              offer.agency = "Omar's Kingdom";
               console.log("Property:", property);
               return { ...offer, property };
             }
@@ -45,10 +48,10 @@ const BrokerOfferManagement = () => {
       <br></br>
       <div>
         {brokerOffers.length > 0 && brokerOffers[0] != "" ? (
-          brokerOffers.map((offer) => (
-            <div key={offer.id}>
-              {offer.property && <PropertyCard card={offer.property} />}
-              {offer && <BrokerOfferCard offer={offer} />}
+          brokerOffers.map((offerId) => (
+            <div key={offerId}>
+              {offerId.property && <PropertyCard card={offerId.property} />}
+              {offerId && <BrokerOfferCard offer={offerId} />}
             </div>
           ))
         ) : (
