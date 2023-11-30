@@ -27,7 +27,7 @@ model Broker {
     role String
     bookedVisits Json[]
     PropertiesResponsible Properties[] @relation("Responsible")
-    propertyOffers PropertyOffer[]
+    propertyOffers Json[]
 }
 
 model Admin {
@@ -69,7 +69,5 @@ model PropertyOffer {
   budget          String 
   message         String
   createdAt       DateTime @default(now())
-  broker          Broker     @relation(fields: [email], references: [email])
-
 }
 
