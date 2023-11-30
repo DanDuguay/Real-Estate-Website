@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from "react";
 import BrokerOfferCard from "../components/BrokerOfferCard.jsx";
 import PropertyCard from "../../PropertyCard/PropertyCard.jsx";
-import { useParams } from "react-router-dom";
 import { getBrokerOffers, getProperty } from "../../../utils/api.js";
+import useAuth from "../../../hooks/useAuth.jsx";
 
 const BrokerOfferManagement = () => {
-  const { brokerId } = useParams();
+  const { auth } = useAuth();
+  console.log("auth:", auth);
+  const brokerId = auth.id;
+
   const [brokerOffers, setBrokerOffers] = useState([]);
 
   useEffect(() => {
-    // Function that fetches all the broker offers and appends to it the properties that have offers
     const fetchBrokerOffers = async () => {
       try {
         const offers = await getBrokerOffers(brokerId);
+        console.log("Offers:", offers);
         const offersWithProperties = await Promise.all(
           offers.map(async (offer) => {
-            const property = await getProperty(offer.propertyId);
-            return { ...offer, property };
+            if (offer.propertyId) {
+              const property = await getProperty(offer.propertyId);
+              console.log("Property:", property);
+              return { ...offer, property };
+            }
+            return offer;
           })
         );
         setBrokerOffers(offersWithProperties);
@@ -26,18 +33,27 @@ const BrokerOfferManagement = () => {
     };
 
     fetchBrokerOffers();
-  }, [brokerId]); // Include brokerId in the dependency array to re-fetch offers when it changes
+  }, [brokerId]);
+
+  useEffect(() => {
+    console.log("Broker Offers: ", brokerOffers);
+  }, [brokerOffers]);
 
   return (
-    <div>
+    <div style={{ color: "black" }}>
       <h2>Broker Offer Management</h2>
+      <br></br>
       <div>
-        {brokerOffers.map((offer) => (
-          <div key={offer.id}>
-            <PropertyCard card={offer.property} />
-            <BrokerOfferCard offer={offer} />
-          </div>
-        ))}
+        {brokerOffers.length > 0 && brokerOffers[0] != "" ? (
+          brokerOffers.map((offer) => (
+            <div key={offer.id}>
+              {offer.property && <PropertyCard card={offer.property} />}
+              {offer && <BrokerOfferCard offer={offer} />}
+            </div>
+          ))
+        ) : (
+          <h3>No current offers</h3>
+        )}
       </div>
     </div>
   );

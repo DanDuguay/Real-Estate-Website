@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import profileImage from "./pic.png";
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import useAuth from "../../hooks/useAuth.jsx"
+import useAuth from "../../hooks/useAuth.jsx";
 
 const UserProfile = () => {
-  const {auth} = useAuth();
+  const { auth } = useAuth();
   const [user, setUser] = useState({});
   const [appointments, setAppointments] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -40,47 +40,48 @@ const UserProfile = () => {
   }, []);
 
   return (
-        <div id="UserProfile">
-
-          <div className="navb" >
-            <nav className="menu">
-              <ul>
-                <li>
-                  <Link to="/mortgagecalculator">Mortgage Calculator</Link>
-                </li>
-                <li>
-                  <Link to="/propertyoffer">Submit offer</Link>
-                </li>
-                <li>
-                  <Link to="/">Appointments</Link>
-                </li>
-                <li>
-                  <Link to="/">Favourite Properties</Link>
-                </li>
-                <li>
-                  <Link to="/offerManagement">Manage Offers</Link>
-                </li>
-              </ul>
-            </nav>
+    <div id="UserProfile">
+      <div className="navb">
+        <nav className="menu">
+          <ul>
+            <li>
+              <Link to="/mortgagecalculator">Mortgage Calculator</Link>
+            </li>
+            <li>
+              <Link to="/propertyoffer">Submit offer</Link>
+            </li>
+            <li>
+              <Link to="/">Appointments</Link>
+            </li>
+            <li>
+              <Link to="/">Favourite Properties</Link>
+            </li>
+            <li>
+              <Link to="/offerManagement">Manage Offers</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className="card">
+        <div className="card-body">
+          <div className="card-title">Profile</div>
+          <div className="card-text">
+            Name: <h2>{auth.name}</h2>
+            <br />{" "}
           </div>
-          <div className="card">
-            <div className="card-body">
-              <div className="card-title">Profile</div>
-              <div className="card-text">Name: <h2>{auth.name}</h2><br/> </div>
-              {/* hidden until needed
+          {/* hidden until needed
               <div className="card-text">Email:</div>
               <div className="card-text">Phone: </div>
               <div className="card-text">Address: </div>
               */}
-              <img
-                src={profileImage}
-                alt="User Profile"
-                className="profile-image"
-              />
-            </div>
-          </div>
+          <img
+            src={profileImage}
+            alt="User Profile"
+            className="profile-image"
+          />
         </div>
+      </div>
+    </div>
   );
 };
-
 export default UserProfile;
