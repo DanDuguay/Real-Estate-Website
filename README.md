@@ -1,8 +1,22 @@
 # Real Estate Web Application
 
+### Feature Overview
+
+
+* CRUD operations on brokers(by admins only) and properties (by brokers and admins) ![image](https://github.com/DanDuguay/LOJMJD-soen341projectF2023/assets/104799539/00b6e049-9de6-41bf-95d0-a5e7650c2251)
+
+
+* Secure login authentication ![image](https://github.com/DanDuguay/LOJMJD-soen341projectF2023/assets/104799539/a119b780-d264-4465-98b1-8d9071cb7ef6) ![image](https://github.com/DanDuguay/LOJMJD-soen341projectF2023/assets/104799539/14480dd2-f51c-4749-95a9-acd3db4f5d04)
+
+* Morgage Calculator
+
+     ![image](https://github.com/DanDuguay/LOJMJD-soen341projectF2023/assets/104799539/7e87ad97-ce7c-4172-b1c6-5208b6bffcc9)
+
+* Properties presented in a User friendly UI with live searching
+
+     ![image](https://github.com/DanDuguay/LOJMJD-soen341projectF2023/assets/104799539/caf5b73c-0cf4-4ef7-bc40-783a9e6564cf)
 
 ### Objective
-
 The objective of this project is to gain practical experience in software project management using Agile methodologies and modern development tools such as GitHub to develop a real estate web application that caters to the needs of various users in the real estate industry.
 
 ### Description
